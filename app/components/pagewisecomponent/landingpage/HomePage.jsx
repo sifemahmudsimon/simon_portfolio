@@ -91,10 +91,10 @@ const HomePage = ({navlist}) => {
       <Box position={"fixed"} w={"100%"} zIndex={100}>
         <NavBar activeSection={activeSection} navlist={navlist} />
       </Box>
-      <Box id={navlist?.find(data => data.name.toLowerCase().includes('home'))?.name.toLowerCase()}>
+      <Box  id={navlist?.find(data => data.name.toLowerCase().includes('home'))?.name.toLowerCase()}>
         <MainSection />
       </Box>
-      <Box id={navlist?.find(data => data.name.toLowerCase().includes('about'))?.name.toLowerCase()}>
+      <Box bg={'black'} h={"100vh"} id={navlist?.find(data => data.name.toLowerCase().includes('about'))?.name.toLowerCase()}>
         <About />
       </Box>
     </Box>

@@ -39,7 +39,7 @@ const redirectUrl= (url)=> {
   console.log(activeSection)
   return (
     <Flex
-      pt={{ lg: landing ? "2vh" : "3.061vw" }}
+      pt={{ lg: landing ? "1vw" : "2vw" }}
       transition="padding-top 0.1s ease-in-out"
     >
       <Container
@@ -49,7 +49,7 @@ const redirectUrl= (url)=> {
         display={"flex"}
         alignItems={"center"}
         bg={"#101010"}
-        maxW={{ lg: landing ? "43.35%" : "93.4%" }}
+        maxW={{ lg: landing ? "43.35%" : "93.4vw" }}
         h={{ lg: "4.23vw" }}
         p={"0.53vw"}
         border={"0.066vw solid rgba(255, 255, 255, 0.06)"}

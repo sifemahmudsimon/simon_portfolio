@@ -1,5 +1,5 @@
 import { Manrope, Poppins } from "next/font/google"; 
-import "./globals.scss"; 
+import "./globals.css"; 
 import { Provider } from "@/components/ui/provider"; 
 import NavBar from "./components/navbar/navbar"; 
 import { Box, defaultSystem } from "@chakra-ui/react";
@@ -24,19 +24,14 @@ export const metadata = {
 
 export default function RootLayout({children}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <style>{`
-          body {
-            font-family: var(--font-manrope), var(--font-poppins), sans-serif;
-          }
-        `}</style>
-      </head>
-      <body className={`${manrope.variable} ${poppins.variable}`}>
-        <Provider>
-          {children}
-        </Provider>
-      </body>
-    </html>
+    <html lang="en">
+  
+    <body className={`${manrope.variable} ${poppins.variable}`} suppressHydrationWarning>
+      <Provider>
+        {children}
+      </Provider>
+    </body>
+  </html>
+  
   );
 }

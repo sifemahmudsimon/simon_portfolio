@@ -1,0 +1,20 @@
+.custom {
+  :global {
+    .swiper-slide {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));;
+      width: auto;
+      margin-left: 0.66vw;
+      border-radius: 0.66vw;
+      overflow: hidden;
+      position: relative;
+      height: 6.5vw;
+      width: 10vw;
+    }
+    .swiper-button-next{
+      display: none;
+    }
+    .swiper-button-prev{
+      display: none;
+    }
+  }
+}
