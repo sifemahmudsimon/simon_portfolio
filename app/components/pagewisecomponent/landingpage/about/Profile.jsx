@@ -24,7 +24,7 @@ const Profile = () => {
         boxSize={"6.61vw"} bg={"#916CE7"} borderRadius={"0.79vw"} position={'relative'}
         overflow={'hidden'}
         >
-          <Image src={'/staticimage/Propic.png'} fill
+          <Image src={'/staticimage/Propic.png'} fill alt="profile"
            style={{
             filter: 'grayscale(100%) drop-shadow(4px -1px 0px white) drop-shadow(-4px -1px 0px white)', // Applying shadow effect to simulate a border
           }}

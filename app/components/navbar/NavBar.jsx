@@ -3,7 +3,7 @@ import { Box, Container, Flex, Tabs, TabsList, Text } from "@chakra-ui/react";
 import React, { act, useEffect, useState } from "react";
 import { Poppins } from "next/font/google";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -13,27 +13,38 @@ const poppins = Poppins({
 
 
 
-const NavBar = ({activeSection,navlist}) => {
+const NavBar = ({activeSection,navlist,setClickedItem}) => {
   const MotionText = motion(Text);
   const [landing,setLanding] = useState(true);
 console.log(landing)
-useEffect(() => {
-  // Set a timeout to delay the state change by 1 second (1000ms)
-  const timer = setTimeout(() => {
-    if (activeSection.includes('home')) {
-      setLanding(true);
-    } else {
-      setLanding(false);
-    }
-  }, 100); // Adjust the delay as needed
+// useEffect(() => {
+//   // Set a timeout to delay the state change by 1 second (1000ms)
+//   const timer = setTimeout(() => {
+//     if (activeSection.includes('home')) {
+//       setLanding(true);
+//     } else {
+//       setLanding(false);
+//     }
+//   }, 100); // Adjust the delay as needed
 
-  // Cleanup function to clear the timer if the component unmounts before the timeout
-  return () => clearTimeout(timer);
-}, [activeSection]);
+//   // Cleanup function to clear the timer if the component unmounts before the timeout
+//   return () => clearTimeout(timer);
+// }, [activeSection]);
 
 const router = useRouter()
-const redirectUrl= (url)=> {
-  router.push(url)
+const pathname = usePathname()
+
+const redirectUrl= (data)=> {
+  if (typeof setClickedItem === 'function') {
+    setClickedItem(data.name)
+  }
+   
+  
+  if (pathname !== data?.url) {
+    router.push(data?.url)
+  }
+  console.log('pathname++++++++++++',pathname)
+  console.log('checkurl++++++++++++',data?.url)
 }
 
   console.log(activeSection)
@@ -83,8 +94,8 @@ const redirectUrl= (url)=> {
           <Tabs.List>
             {navlist.map((data, index) => (
               <Tabs.Trigger
-              onClick={()=>redirectUrl(data.url)}
-              defaultValue={index[2]}
+              onClick={()=>redirectUrl(data)}
+              // defaultValue={index[2]}
               bg={'transparent'}
                 key={index}
                 value={data?.name}
