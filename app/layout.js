@@ -1,7 +1,6 @@
 import { Manrope, Poppins } from "next/font/google"; 
 import "./globals.css"; 
 import { Provider } from "@/components/ui/provider"; 
-import NavBar from "./components/navbar/navbar"; 
 import { Box, defaultSystem } from "@chakra-ui/react";
 
 // Load the fonts with weights specified
