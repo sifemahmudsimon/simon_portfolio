@@ -9,7 +9,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination' 
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
 
-const ImageGallery = () => {
+const ImageGallery = ({gallary}) => {
   return (
     <Flex 
       h={'100%'} 
@@ -35,10 +35,11 @@ const ImageGallery = () => {
           clickable: true, 
         }}
       >
-        <SwiperSlide>
+        {gallary?.map(image=>(
+          <SwiperSlide>
           <Flex justify="center" align="center" h="100%"> 
             <Image
-              src="/tempimage/media_20241102_182750_449641552568190136.jpg"
+              src={image?.url}
               alt="Card"
               height={226*5}
               width={427*5}
@@ -47,30 +48,8 @@ const ImageGallery = () => {
             />
           </Flex>
         </SwiperSlide>
-        <SwiperSlide>
-          <Flex justify="center" align="center" h="100%"> 
-            <Image
-              src="/tempimage/PXL_20241030_112557555.jpg"
-              alt="Another Image"
-              height={226*5}
-              width={427*5}
-              objectFit="cover"
-              objectPosition="center"
-            />
-          </Flex>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Flex justify="center" align="center" h="100%"> 
-            <Image
-              src="/tempimage/c5a7a600210bd6210b410a9a0f0d3f96.jpeg"
-              alt="Another Image"
-              height={226*5}
-              width={427*5}
-              objectFit="cover"
-              objectPosition="center"
-            />
-          </Flex>
-        </SwiperSlide>
+        ))}
+      
         
       </Swiper>
     </Flex>

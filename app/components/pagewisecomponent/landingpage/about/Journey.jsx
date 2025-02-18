@@ -9,7 +9,7 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // Adding weights for Poppins
 });
 
-const Journey = () => {
+const Journey = ({journey}) => {
   const [hovered, setHovered] = useState(false);
   return (
     <Flex
@@ -39,7 +39,7 @@ const Journey = () => {
           fontSize={"1.59vw"}
           lineHeight={"1.59vw"}
         >
-          My Journey
+          {journey?.title}
         </Text>
         <IconButton
           rounded={"full"}
@@ -79,7 +79,7 @@ const Journey = () => {
         lineHeight={"1.46vw"}
         my={"1.59vw"}
       >
-        My Journey and details
+        {journey?.sub}
       </Text>
 
       <Box
@@ -97,7 +97,8 @@ const Journey = () => {
           e.stopPropagation(); // Prevent scroll propagation
         }}
       >
-        <Flex gap={"1.46vw"}  mb={'1.25vw'}>
+        {journey?.data?.map((step,index)=>(
+          <Flex key={index} gap={"1.46vw"}  mb={'1.25vw'}>
           <Text
             color={"#CCCCCC"}
             fontWeight={"500"}
@@ -106,7 +107,7 @@ const Journey = () => {
             whiteSpace="nowrap"
            
           >
-            25 Jan:
+            {step?.date}:
           </Text>
           <Text
             color={"#E6E6E6"}
@@ -114,69 +115,10 @@ const Journey = () => {
             fontSize={"1.25vw"}
             lineHeight={"1.79vw"}
           >
-            Started a new mobile design project.
+             {step?.shortdescription}
           </Text>
         </Flex>
-        <Flex gap={"1.46vw"}  mb={'1.25vw'}>
-          <Text
-            color={"#CCCCCC"}
-            fontWeight={"500"}
-            fontSize={"1vw"}
-            lineHeight={"1.98vw"}
-            whiteSpace="nowrap"
-           
-          >
-            25 Jan:
-          </Text>
-          <Text
-            color={"#E6E6E6"}
-            fontWeight={"400"}
-            fontSize={"1.25vw"}
-            lineHeight={"1.79vw"}
-          >
-            Started a new mobile design project.
-          </Text>
-        </Flex>
-        <Flex gap={"1.46vw"}  mb={'1.25vw'}>
-          <Text
-            color={"#CCCCCC"}
-            fontWeight={"500"}
-            fontSize={"1vw"}
-            lineHeight={"1.98vw"}
-            whiteSpace="nowrap"
-           
-          >
-            25 Jan:
-          </Text>
-          <Text
-            color={"#E6E6E6"}
-            fontWeight={"400"}
-            fontSize={"1.25vw"}
-            lineHeight={"1.79vw"}
-          >
-            Started a new mobile design project.
-          </Text>
-        </Flex>
-        <Flex gap={"1.46vw"}  mb={'1.25vw'}>
-          <Text
-            color={"#CCCCCC"}
-            fontWeight={"500"}
-            fontSize={"1vw"}
-            lineHeight={"1.98vw"}
-            whiteSpace="nowrap"
-           
-          >
-            25 Jan:
-          </Text>
-          <Text
-            color={"#E6E6E6"}
-            fontWeight={"200"}
-            fontSize={"1.25vw"}
-            lineHeight={"1.79vw"}
-          >
-            Started a new mobile design project.
-          </Text>
-        </Flex>
+        ))}
       </Box>
 
       <Image

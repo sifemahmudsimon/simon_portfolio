@@ -1,9 +1,10 @@
 "use client";
 import { Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
-const Profile = () => {
+const Profile = ({profile}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   console.log(isHovered);
@@ -24,7 +25,7 @@ const Profile = () => {
         boxSize={"6.61vw"} bg={"#916CE7"} borderRadius={"0.79vw"} position={'relative'}
         overflow={'hidden'}
         >
-          <Image src={'/staticimage/Propic.png'} fill alt="profile"
+          <Image src={profile?.profileimage} fill alt="profile pic"
            style={{
             filter: 'grayscale(100%) drop-shadow(4px -1px 0px white) drop-shadow(-4px -1px 0px white)', // Applying shadow effect to simulate a border
           }}
@@ -46,7 +47,7 @@ const Profile = () => {
               lineHeight={"1.26vw"}
               color={"#999999"}
             >
-              <Box boxSize={"1.19vw"}>
+              <Box boxSize={"1.19vw"} color={profile?.avaiablity?.color}>
                 <svg
                   width="100%"
                   height="100%"
@@ -61,13 +62,14 @@ const Profile = () => {
                     fill="white"
                     fillOpacity="0.1"
                   />
-                  <circle cx="8.5" cy="8.5" r="4.5" fill="#6DD33D" />
+                  <circle cx="8.5" cy="8.5" r="4.5" fill="currentColor" />
                 </svg>
               </Box>
-              Available To Work
+              {profile?.avaiablity?.status}
             </Flex>
 
-            <Button
+         <Link href={profile?.resume?.url} target="_blank">
+         <Button
               alignItems={"center"}
               gap={"8px"}
               fontWeight={"500"}
@@ -78,7 +80,7 @@ const Profile = () => {
               onMouseEnter={() => setIsHovered((prev) => !prev)}
               onMouseLeave={() => setIsHovered((prev) => !prev)}
             >
-              Resume
+              {profile?.resume?.name?.toLowerCase()}
               <Icon
                 boxSize={"2.32vw"}
                 color={isHovered ? "#916CE7" : "#282828"}
@@ -105,6 +107,7 @@ const Profile = () => {
                 </svg>
               </Icon>
             </Button>
+         </Link>
           </Flex>
           <Box>
             <Text
@@ -114,7 +117,7 @@ const Profile = () => {
               color={"#E6E6E6"}
               mb={"0.66vw"}
             >
-              Sife Mahmud Simon
+              {profile?.name}
             </Text>
             <Text
               fontWeight={"500"}
@@ -124,22 +127,20 @@ const Profile = () => {
             >
               Im a
               <Text as={"span"} fontWeight={"600"} color={"#916CE7"}>
-                {' '}Front End Developer
+                {' '}{profile?.stack} Developer
               </Text>
             </Text>
           </Box>
         </Flex>
       </Flex>
-      <Text color={"white"} h={'6.5vw'} fontWeight={'500'} 
+      <Text color={"white"} h={'6.5vw'} fontWeight={'300'}  
       fontSize={"0.93vw"}
               lineHeight={"1.26vw"}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel placeat
-        totam tempora voluptatum officia? Repudiandae recusandae optio dicta,
-        facilis dignissimos similique cupiditate inventore ducimus obcaecati!
-        Quae voluptate error sequi repellendus?
+        {profile?.about}
       </Text>
 
-      <Button
+     <Link href={profile?.social?.socialsite?.url} target="_blank">
+     <Button
         flex={1}
         h="3.3vw"
         maxH={'3.3vw'}
@@ -167,8 +168,9 @@ const Profile = () => {
 
          
         </Icon>
-        LinkedIn
+        {profile?.social?.socialsite?.name}
       </Button>
+      </Link>
     </Flex>
   );
 };

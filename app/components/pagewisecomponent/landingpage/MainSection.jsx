@@ -5,7 +5,7 @@ import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
 
-const MainSection = () => {
+const MainSection = ({profile}) => {
   return (
     <Flex h={"100vh"} overflow={"hidden"}>
     <Box
@@ -14,7 +14,7 @@ const MainSection = () => {
       position={"relative"}
     >
       <Image
-        src={"/staticimage/landingpage.png"}
+        src={profile?.bannerimage}
         // width={627 * 2}
         // height={784 * 2}
         layout="fill"
@@ -38,7 +38,7 @@ const MainSection = () => {
           lineHeight={"4.23vw"}
           letterSpacing={"0.26vw"}
         >
-          Sife Mahmud Simon
+          {profile?.name}
         </Text>
         <Text
           fontWeight={300}
@@ -46,11 +46,11 @@ const MainSection = () => {
           lineHeight={"1.85vw"}
           letterSpacing={"0.53vw"}
         >
-          Softwere Engineer (Frontend)
+          {profile?.designation} ({profile?.stack})
         </Text>
       </Box>
       <Flex gap={"1.59vw"}>
-        <Link href={"/#"}>
+        <Link href={profile?.resume?.url}>
           <Flex
             bg={"#CCCCCC"}
             alignItems={"center"}
@@ -100,9 +100,10 @@ const MainSection = () => {
                 />
               </svg>
             </Box>
-            My Resume
+           My {profile?.resume?.name}
           </Flex>
         </Link>
+        <Link href={profile?.social?.socialsite?.url} target="_blank">
         <Button
           minW={"16.91vw"}
           h={"4.76vw"}
@@ -124,8 +125,9 @@ const MainSection = () => {
             transition: "none !important", // Change background on click (active state)
           }}
         >
-          LinkedIn
+          {profile?.social?.socialsite?.name}
         </Button>
+        </Link>
       </Flex>
     </Flex>
   </Flex>

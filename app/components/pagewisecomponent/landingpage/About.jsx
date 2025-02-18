@@ -9,7 +9,7 @@ import ImageGallery from "./about/ImageGallery";
 import Journey from "./about/Journey";
 import Skills from "./about/Skills";
 
-const About = () => {
+const About = ({profile,journey,stacks,projects,gallary}) => {
   return (
     <Flex
       alignItems={"end"}
@@ -22,17 +22,17 @@ const About = () => {
     >
       <Flex  w={"100%"} h={"100%"} gap={'0.79vw'}>
         <Flex flexDir={'column'} w={'30.64vw'} gap={'0.79vw'} >
-          <Profile/>
-          <WorkGallery/>
+          <Profile {...{profile}}/>
+          <WorkGallery {...{projects}}/>
         </Flex>
         <Flex flexDir={'column'} w={'22.67vw'} gap={'0.79vw'} >
           <ContactMe/>
-          <MyStacks/>
-          <WorkTogether/>
+          <MyStacks {...{stacks}}/>
+          <WorkTogether social={profile?.social}/>
         </Flex>
         <Flex flexDir={'column'} w={'28.25vw'} gap={'0.79vw'} >
-          <ImageGallery/>
-          <Journey/>
+          <ImageGallery {...{gallary}}/>
+          <Journey {...{journey}}/>
         </Flex>
         <Flex flexDir={'column'} w={'9.59vw'} gap={'0.79vw'} >
           <Skills/>

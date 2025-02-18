@@ -1,7 +1,8 @@
 import { Box, Button, Center, Flex, Icon, Text } from "@chakra-ui/react";
+import Link from "next/link";
 import React from "react";
 
-const WorkTogether = () => {
+const WorkTogether = ({social}) => {
   return (
     <Center
       flexDir="column"
@@ -24,6 +25,7 @@ const WorkTogether = () => {
       </Text>
 
       <Flex w="100%" gap="0.53vw">
+       <Link href={social?.email?.url} style={{width:'100%'}}>
         <Button
           flex={1}
           h="3.5vw"
@@ -55,6 +57,8 @@ const WorkTogether = () => {
           </Icon>
           Email
         </Button>
+        </Link>
+        <Link href={social?.whatsapp?.url} target="_blank" style={{width:'100%'}}>
         <Button
           flex={1}
           h="3.5vw"
@@ -80,8 +84,10 @@ const WorkTogether = () => {
               />
             </svg>
           </Icon>
-          Whatsapp
+         {social?.whatsapp?.name}
         </Button>
+        </Link>
+       
       </Flex>
     </Center>
   );
