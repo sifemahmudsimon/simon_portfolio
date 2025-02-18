@@ -32,7 +32,9 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
   }, [homePageNav]);
 
   const redirectUrl = (data, index) => {
-    sessionStorage.setItem('navClick', data.name);
+    if (typeof window !== "undefined") {  // Ensure this is only run in the browser
+      sessionStorage.setItem('navClick', data.name);
+    }
     if (typeof setClickedItem === "function") {
       setClickedItem(data.name);
       
