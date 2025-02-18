@@ -35,8 +35,8 @@ const ImageGallery = ({gallary}) => {
           clickable: true, 
         }}
       >
-        {gallary?.map(image=>(
-          <SwiperSlide>
+        {gallary?.map((image,index)=>(
+          <SwiperSlide key={index}>
           <Flex justify="center" align="center" h="100%"> 
             <Image
               src={image?.url}
