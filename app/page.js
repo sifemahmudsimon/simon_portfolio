@@ -38,7 +38,7 @@ const profile = {
       url: "https://www.linkedin.com/in/sifemahmudsimon/",
     },
   },
-  resume: { name: "Resume", url: "https://drive.google.com/file/d/1oSDpG_rsC6nqQ94tVQCa35DSKcaBKKyn/view?usp=sharing" },
+  resume: { name: "Resume", url: "https://drive.google.com/file/d/1wHBtMw16AIJDMGOrfHt_rLkG1OSf1uP4/view?usp=sharing" },
   avaiablity: {
     status: "Available To Work",
     color: "#6DD33D",
