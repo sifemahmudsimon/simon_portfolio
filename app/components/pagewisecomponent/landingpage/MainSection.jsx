@@ -50,7 +50,7 @@ const MainSection = ({profile}) => {
         </Text>
       </Box>
       <Flex gap={"1.59vw"}>
-        <Link href={profile?.resume?.url}>
+        <Link href={profile?.resume?.url} target="_blank">
           <Flex
             bg={"#CCCCCC"}
             alignItems={"center"}
@@ -67,17 +67,20 @@ const MainSection = ({profile}) => {
             lineHeight={"2.12vw"}
             // h={"5.16vw"}
             _hover={{
-              bg: "transparent", // Make sure background is transparent for gradient effect
-              transition: "background 0.25s ease", // Add transition for smooth effect
-              background: "#090920",
-              color: "#CCCCCC",
-              backgroundSize: "200% 100%", // Start with background larger than the container
-              backgroundPosition: "right center", // Start the gradient from right
+              bg: "transparent", 
+              transition: "background 0.25s ease", 
+              background: "#DDDDDD",
+             
+              
+              backgroundSize: "200% 100%",
+              backgroundPosition: "right center", 
             }}
             _active={{
-              bg: "#CCCCCC !important",
-              color: "#090920 !important",
-              transition: "none !important", // Change background on click (active state)
+              bg: "#EEEEEE !important",
+              color: "#CCCCCC !important",
+              boxShadow:'inset 2px 2px 4px 2px #505050 !important',
+           
+              transition: "none !important", 
             }}
             transition="background 0.2s ease"
           >
@@ -105,6 +108,7 @@ const MainSection = ({profile}) => {
         </Link>
         <Link href={profile?.social?.socialsite?.url} target="_blank">
         <Button
+        bg={'#090920'}
           minW={"16.91vw"}
           h={"4.76vw"}
           roundedRight={"full"}
@@ -116,11 +120,12 @@ const MainSection = ({profile}) => {
           lineHeight={"2.12vw"}
           _hover={{
             color: "#090920",
-            bg:'#CCCCCC',
+            bg:'#DDDDDD',
             boxShadow:"inset 0px 0px 0px 2px #090920"
           }}
           _active={{
-            bg: "#090920 !important",
+            bg: "#EEEEEE !important",
+            boxShadow:'inset 2px 2px 4px 2px #505050 !important',
             color: "#CCCCCC !important",
             transition: "none !important", // Change background on click (active state)
           }}
