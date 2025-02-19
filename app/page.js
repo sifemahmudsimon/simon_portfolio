@@ -209,6 +209,7 @@ const gallary = [
   {url:'/tempimage/img2.png'},
 ]
 
+
 export default function Home() {
   return (
     <HomePage navlist={navlist} {...{ navlist, profile, journey, stacks,projects,gallary }} />
