@@ -5,39 +5,40 @@ import React from "react";
 const WorkTogether = ({social}) => {
   return (
     <Center
+    mb={{base:'16px',md:'none'}}
       flexDir="column"
       justifyContent="space-between"
       h="100%"
       w="100%"
-      p="1.32vw"
-      maxH="9.93vw"
+      p={{base:'16px',md:"1.32vw"}}
+      maxH={{md:"9.93vw"}}
       bg="#101010"
       boxShadow="0px 0px 0px 1px rgba(255, 255, 255, 0.06)"
-      borderRadius="20px"
+      borderRadius={{base:'12px',md:'1.32vw'}}
     >
       <Text
         fontWeight="600"
-        fontSize="1.32vw"
-        lineHeight="1.59vw"
+        fontSize={{base:'18px',md:"1.32vw"}}
+        lineHeight={{base:'24px',md:"1.59vw"}}
         color="#E6E6E6"
       >
         Let’s Work Together
       </Text>
 
-      <Flex w="100%" gap="0.53vw">
+      <Flex w="100%" gap={{base:'16px',md:"0.53vw"}}>
        <Link href={social?.email?.url} style={{width:'100%'}}>
         <Button
           flex={1}
-          h="3.5vw"
+          h={{base:'44px',md:"3.5vw"}}
           w="100%"
           fontWeight={"500"}
-          fontSize={"0.86vw"}
-          lineHeight={"1.19vw"}
+          fontSize={{base:'16px',md:"0.86vw"}}
+          lineHeight={{base:'20px',md:"1.19vw"}}
           color={"#CCCCCC"}
-          gap={"0.53vw"}
-          rounded={"0.66vw"}
+          gap={{base:'8px',md:"0.53vw"}}
+          rounded={{base:'8px',md:"0.66vw"}}
         >
-          <Icon boxSize={"1.19vw"}>
+          <Icon boxSize={{base:'22px',md:"1.19vw"}}>
             <svg
               width="100%"
               height="100%"
@@ -61,16 +62,16 @@ const WorkTogether = ({social}) => {
         <Link href={social?.whatsapp?.url} target="_blank" style={{width:'100%'}}>
         <Button
           flex={1}
-          h="3.5vw"
+          h={{base:'44px',md:"3.5vw"}}
           w="100%"
           fontWeight={"500"}
-          fontSize={"0.86vw"}
-          lineHeight={"1.19vw"}
+          fontSize={{base:'16px',md:"0.86vw"}}
+          lineHeight={{base:'20px',md:"1.19vw"}}
           color={"#CCCCCC"}
-          gap={"0.53vw"}
-          rounded={"0.66vw"}
+          gap={{base:'8px',md:"0.53vw"}}
+          rounded={{base:'8px',md:"0.66vw"}}
         >
-          <Icon boxSize={"1.19vw"}>
+         <Icon boxSize={{base:'22px',md:"1.19vw"}}>
             <svg
               width="100%"
               height="100%"

@@ -46,7 +46,9 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
 
   return (
     <Flex
-      pt={{ lg: isHomeSection ? "1vw" : "2vw" }}
+      pt={{md: isHomeSection ? "1vw" : "2vw" }}
+      pb={{base:'8px',md:'none'}}
+      px={{base:'16px',md:'none'}}
       transition="padding-top 0.1s ease-in-out"
     >
       <Container
@@ -55,14 +57,14 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
         display={"flex"}
         alignItems={"center"}
         bg={"#101010"}
-        maxW={{ lg: isHomeSection ? "43.35%" : "93.4vw" }}
-        h={{ lg: "4.23vw" }}
+        maxW={{ md: isHomeSection ? "43.35%" : "93.4vw" }}
+        h={{ md: "4.23vw" }}
         p={"0.53vw"}
         border={"0.066vw solid rgba(255, 255, 255, 0.06)"}
         borderRadius={isHomeSection ? "5.29vw" : "1.058vw"}
         boxShadow={"0px 0.93vw 2.01vw 0px rgba(0, 0, 0, 0.25)"}
         transition="max-width 0.3s ease-in-out 0.1s"
-        justifyContent={"end"}
+        justifyContent={{base:'center',md:"end"}}
       >
         <MotionText
           color="white"
@@ -99,7 +101,7 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
                 key={index}
                 value={index.toString()}
                 color={activeIndex === index ? "#FFFFFF" : "#CCCCCC"}
-                fontSize={{ lg: "1.06vw" }}
+                fontSize={{ md: "1.06vw" }}
                 fontWeight={activeIndex === index ? 400 : 300}
                 lineHeight={"1.587vw"}
                 w={{ md: "10.45vw" }}

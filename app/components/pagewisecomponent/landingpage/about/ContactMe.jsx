@@ -7,6 +7,7 @@ export default function MyComponent() {
   const [hovered, setHovered] = useState(false);
   return (
     <Flex
+    mb={{base:'16px',md:'none'}}
       flex={1}
       flexDir={"column"}
       justifyContent={"space-between"}
@@ -15,17 +16,17 @@ export default function MyComponent() {
       overflow={"hidden"}
       bg={"#101010"}
       boxShadow={"0px 0px 0px 1px rgba(255, 255, 255, 0.06)"}
-      borderRadius={"20px"}
-      p={"1.32vw"}
+      borderRadius={{base:'12px',md:'1.32vw'}}
+      p={{base:'16px',md:"1.32vw"}}
       onMouseEnter={() => setHovered(true)} // Set the hover state to true when mouse enters
       onMouseLeave={() => setHovered(false)}
     >
-      <Flex position="relative" zIndex={2} justifyContent={"space-between"}>
+      <Flex position="relative" zIndex={2} justifyContent={"space-between"} mb={{base:'80px',md:'none'}}> 
         <Text
           fontWeight={"300"}
           color={"#CCCCCC"}
-          fontSize={"1.06vw"}
-          lineHeight={"1.36vw"}
+          fontSize={{base:'16px',md:"1.06vw"}}
+          lineHeight={{base:'16px',md:"1.36vw"}}
         >
           Have some <br /> questions?
         </Text>
@@ -33,9 +34,9 @@ export default function MyComponent() {
           rounded={"full"}
           bg={"transparent"}
           color={"#CCCCCC"}
-          width="2vw" // Adjust the size of the button
-          height="2vw" // Adjust the size of the button
-          padding="0.25vw" // Optionally adjust padding if needed for icon alignment
+          width={{base:'24px',md:"2vw" }}
+          height={{base:'24px',md:"2vw" }}
+          padding={{base:'8px',md:"0.25vw"}} 
           _hover={{ 
             bg: "rgba(255, 255, 255, 0.075)", 
             transform:'rotate(45deg)'
@@ -63,8 +64,8 @@ export default function MyComponent() {
         zIndex={2}
         fontWeight={"500"}
         color={"#CCCCCC"}
-        fontSize={"2.50vw"}
-        lineHeight={"1.85vw"}
+        fontSize={{base:'28px',md:"2.50vw"}}
+        lineHeight={{base:'32px',md:"1.85vw"}}
       >
         Contact me
       </Text>

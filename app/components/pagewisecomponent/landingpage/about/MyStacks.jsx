@@ -12,29 +12,30 @@ import React from "react";
 const MyStacks = ({ stacks }) => {
   return (
     <Box
+    mb={{base:'16px',md:'none'}}
       h={"100%"}
       w={"100%"}
-      maxH={"15.28vw"}
+      maxH={{md:"15.28vw"}}
       bg={"#101010"}
       boxShadow={"0px 0px 0px 1px rgba(255, 255, 255, 0.06)"}
-      borderRadius={"20px"}
-      p={"1.32vw"}
-      pb={"1.85vw"}
+      borderRadius={{base:'12px',md:'1.32vw'}}
+      p={{base:'16px',md:"1.32vw"}}
+      pb={{md:"1.85vw"}}
     >
       <Box>
         <Flex
           fontWeight={"500"}
-          fontSize={"0.93vw"}
-          lineHeight={"1.26vw"}
+          fontSize={{base:'18x',md:"0.93vw"}}
+          lineHeight={{base:'24px',md:"1.26vw"}}
           w={"100%"}
           justifyContent={"center"}
           alignItems={"center"}
           color={"#CCCCCC"}
-          gap={"0.53vw"}
-          mt={"0.66vw"}
-          mb={"1.06vw"}
+          gap={{base:'8px',md:"0.53vw"}}
+          mt={{md:"0.66vw"}}
+          mb={{md:"1.06vw"}}
         >
-          <Box boxSize={"1.19vw"}>
+          <Box boxSize={{base:'22px',md:"1.19vw"}}>
             <svg
               width="100%"
               height="100%"
@@ -60,28 +61,28 @@ const MyStacks = ({ stacks }) => {
           color={"#999999"}
           textAlign={"center"}
           fontWeight={"500"}
-          fontSize={"0.93vw"}
-          lineHeight={"1.26vw"}
+          fontSize={{base:'14px',md:"0.93vw"}}
+          lineHeight={{base:'20px',md:"1.26vw"}}
         >
           {stacks?.sub}
         </Text>
       </Box>
 
-      <Grid templateColumns="repeat(2, 1fr)" gap={"0.53vw"} mt={"1.06vw"}>
+      <Grid templateColumns={"repeat(2, 1fr)"} gap={{base:'8px',md:"0.53vw"}} mt={{base:'8px',md:"1.06vw"}}>
         {stacks?.data?.map((data, index) => (
           <GridItem
             key={index}
             display={"flex"}
             flex={1}
-            gap={"0.39vw"}
+            gap={{base:'8px',md:"0.39vw"}}
             bg={"#191919"}
-            h={"3.17vw"}
-            p={"0.53vw"}
-            rounded={"0.79vw"}
+            h={{md:"3.17vw"}}
+            p={{base:'8px',md:"0.53vw"}}
+            rounded={{base:'8px',md:"0.79vw"}}
             alignItems={"center"}
           >
             <Icon
-              boxSize={"35px"}
+              boxSize={{base:"35px",md:'2.31px'}}
               bg={"#282828"}
               color={"#CCCCCC"}
               p={"0.35vw"}
@@ -92,8 +93,8 @@ const MyStacks = ({ stacks }) => {
             <Text
               color={"#CCCCCC"}
               fontWeight={500}
-              fontSize={"0.93vw"}
-              lineHeight={"1.26vw"}
+              fontSize={{base:'16px',md:"0.93vw"}}
+              lineHeight={{md:"1.26vw"}}
             >
               {data?.name}
             </Text>

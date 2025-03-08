@@ -9,7 +9,7 @@ const MainSection = ({profile}) => {
   return (
     <Flex h={"100vh"} overflow={"hidden"}>
     <Box
-      w={{ lg: "41.47vw", "2xl": "38vw" }}
+      w={{base:'80%', lg: "41.47vw", "2xl": "38vw" }}
       overflow={"hidden"}
       position={"relative"}
     >
@@ -29,6 +29,7 @@ const MainSection = ({profile}) => {
       mr={{ md: "9.79vw" }}
       justifyContent={"center"}
       gap={"6vw"}
+      display={{base:'none',md:'flex'}}
     >
       <Box textAlign={"right"}>
         <Text
