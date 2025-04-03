@@ -7,6 +7,7 @@ export default function MyComponent() {
   const [hovered, setHovered] = useState(false);
   return (
     <Flex
+    cursor={'pointer'}
       flex={1}
       flexDir={"column"}
       justifyContent={"space-between"}
@@ -31,15 +32,17 @@ export default function MyComponent() {
         </Text>
         <IconButton
           rounded={"full"}
-          bg={"transparent"}
+          bg={hovered ? "rgba(255, 255, 255, 0.075)" : "transparent"}
+          transform={hovered ? 'rotate(45deg)' : 'rotate(0deg)'}
           color={"#CCCCCC"}
           width="2vw" // Adjust the size of the button
           height="2vw" // Adjust the size of the button
           padding="0.25vw" // Optionally adjust padding if needed for icon alignment
-          _hover={{ 
-            bg: "rgba(255, 255, 255, 0.075)", 
-            transform:'rotate(45deg)'
-          }}
+          // _hover={{ 
+          //   bg: "rgba(255, 255, 255, 0.075)", 
+          //   transform:'rotate(45deg)'
+          // }}
+          
         >
           <svg
             width="100%"

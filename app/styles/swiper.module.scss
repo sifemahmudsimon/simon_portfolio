@@ -22,6 +22,12 @@
       transition: transform 0.3s ease, filter 0.3s ease;
     }
 
+    .swiper-slide-active img{
+      filter: grayscale(0%) brightness(1) blur(0) !important; 
+      transform: scale(1.1) !important;    
+      transition: transform 0.3s ease 0.25s, filter 0.3s ease 0.1s !important;  
+    }
+
     .swiper-slide img:not(:hover) {
       filter: grayscale(100%); 
     }

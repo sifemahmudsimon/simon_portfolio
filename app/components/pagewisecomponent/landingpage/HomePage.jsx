@@ -34,7 +34,7 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
         hasScrolledDown = true;
         hasScrolledUp = false;
         const targetSection = document.getElementById(about_section_id.toLowerCase());
-        if (targetSection) {
+        if (targetSection && window.innerWidth > 768) {
           targetSection.scrollIntoView({ behavior: 'smooth' });
           setIsHomeSection(false);
         }
@@ -42,7 +42,7 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
         hasScrolledUp = true;
         hasScrolledDown = false;
         const targetSection = document.getElementById(home_section_id.toLowerCase());
-        if (targetSection) {
+        if (targetSection && window.innerWidth > 768) {
           targetSection.scrollIntoView({ behavior: 'smooth' });
           setIsHomeSection(true);
         }

@@ -41,17 +41,20 @@ const Journey = ({journey}) => {
         >
           {journey?.title}
         </Text>
+        <Flex gap={'16px'} alignItems={'center'} cursor={'pointer'}>
+          <Text opacity={hovered ? 1:0} transition={'opacity 0.3s ease-in-out'} fontSize={"1vw"} color={"#E6E6E6"}>See More</Text>
         <IconButton
           rounded={"full"}
-          bg={"transparent"}
+          bg={hovered ? "rgba(255, 255, 255, 0.075)" : "transparent"}
+          transform={hovered ? 'rotate(45deg)' : 'rotate(0deg)'}
           color={"#CCCCCC"}
           width="2vw"
           height="2vw"
           padding="0.25vw"
-          _hover={{
-            bg: "rgba(255, 255, 255, 0.075)",
-            transform: "rotate(45deg)",
-          }}
+          // _hover={{
+          //   bg: "rgba(255, 255, 255, 0.075)",
+          //   transform: "rotate(45deg)",
+          // }}
         >
           <svg
             width="100%"
@@ -69,6 +72,7 @@ const Journey = ({journey}) => {
             />
           </svg>
         </IconButton>
+        </Flex>
       </Flex>
       <Text
         position="relative"
@@ -83,19 +87,34 @@ const Journey = ({journey}) => {
       </Text>
 
       <Box
+      cursor={'n-resize'}
         position="relative"
         zIndex={2}
         className={poppins.className}
-        sx={{ fontFamily: "var(--font-poppins), sans-serif" }}
-        style={{
-          fontFamily: "var(--font-poppins), sans-serif",
-          overflowY: "auto",
-          scrollbarWidth: "none", // Firefox
-          msOverflowStyle: "none", // IE and Edge
+        // sx={{ fontFamily: "var(--font-poppins), sans-serif" }}
+        css={{
+          overflow: 'auto', 
+         
+          scrollbarWidth: 'thin', 
+          scrollbarColor: 'gray transparent', 
+          '&::-webkit-scrollbar': {
+            width: '6px', 
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: 'gray', 
+            borderRadius: '10px', 
+          },
+          '&::-webkit-scrollbar-track': {
+            background: 'transparent', 
+            borderRadius: '10px',
+          },
+          
         }}
+     
         onWheel={(e) => {
           e.stopPropagation(); // Prevent scroll propagation
         }}
+        
       >
         {journey?.data?.map((step,index)=>(
           <Flex key={index} gap={"1.46vw"}  mb={'1.25vw'}>
