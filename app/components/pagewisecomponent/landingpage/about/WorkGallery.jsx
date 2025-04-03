@@ -116,8 +116,8 @@ const WorkGallery = ({ projects }) => {
         display="block"
         zIndex={10}
         fontWeight={500}
-        fontSize={{base:'10px',md:"0.93vw"}}
-        lineHeight={"1.26vw"}
+        fontSize={{base:'14px',md:"0.93vw"}}
+        lineHeight={{base:'18px',md:"1.26vw"}}
       >
         View Works
       </Button>

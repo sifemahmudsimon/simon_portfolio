@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const MainSection = ({profile}) => {
   return (
-    <Flex h={"100vh"} overflow={"hidden"}>
+    <Flex position={'relative'} h={"100vh"} overflow={"hidden"}>
     <Box
       w={{base:'80%', lg: "41.47vw", "2xl": "38vw" }}
       overflow={"hidden"}
@@ -135,6 +135,31 @@ const MainSection = ({profile}) => {
         </Button>
         </Link>
       </Flex>
+    </Flex>
+
+
+    <Flex display={{md:'none'}} roundedLeft={'24px'} position={'absolute'} right={0} bottom={'15%'}  w={'85%'} bg={'rgba(128, 128, 128, 0.75)'} py={'24px'} pr={'8px'}>
+      <Box textAlign={"right"}>
+        <Text
+          mb={{base:'16px', md: "1.59vw" }}
+          fontWeight={800}
+          fontSize={{base:'38px',md:"4.23vw"}}
+          lineHeight={{base:'44px',md:"4.23vw"}}
+          letterSpacing={{base:'5px',md:"0.26vw"}}
+          color={'white'}
+        >
+          {profile?.name}
+        </Text>
+        <Text
+          fontWeight={600}
+          fontSize={{base:'18px',md:"1.85vw"}}
+          lineHeight={{base:'30px',md:"1.85vw"}}
+          letterSpacing={{base:'1.5px',md:"0.53vw"}}
+          color={'white'}
+        >
+          {profile?.designation} ({profile?.stack})
+        </Text>
+      </Box>
     </Flex>
   </Flex>
   )

@@ -15,6 +15,7 @@ const WorkTogether = ({social}) => {
       bg="#101010"
       boxShadow="0px 0px 0px 1px rgba(255, 255, 255, 0.06)"
       borderRadius={{base:'12px',md:'1.32vw'}}
+      gap={{base:'24px',md:0}}
     >
       <Text
         fontWeight="600"

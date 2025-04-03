@@ -1,5 +1,5 @@
 "use client";
-import { Box, Flex, IconButton, Text } from "@chakra-ui/react";
+import { Box, Flex, IconButton, Show, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { Poppins } from "next/font/google";
@@ -13,13 +13,14 @@ const Journey = ({journey}) => {
   const [hovered, setHovered] = useState(false);
   return (
     <Flex
+    mb={{base:'16px',md:0}}
       flexDir={"column"}
       flex={1}
-      p={"1.32vw"}
+      p={{base:'16px',md:"1.32vw"}}
       w={"100%"}
       bg={"#101010"}
       boxShadow={"0px 0px 0px 1px rgba(255, 255, 255, 0.06)"}
-      borderRadius={"20px"}
+      borderRadius={{base:'12px',md:'1.32vw'}}
       position="relative"
       overflow={"hidden"}
       onMouseEnter={() => setHovered(true)} // Set the hover state to true when mouse enters
@@ -30,19 +31,21 @@ const Journey = ({journey}) => {
         zIndex={2}
         justifyContent={"space-between"}
         alignItems={"center"}
-        pb={"2.11vw"}
+        pb={{base:'12px',md:"2.11vw"}}
         borderBottom={"1px solid rgba(255, 255, 255, 0.31)"}
       >
         <Text
           color={"#E6E6E6"}
           fontWeight={600}
-          fontSize={"1.59vw"}
-          lineHeight={"1.59vw"}
+          fontSize={{base:'20px',md:"1.59vw"}}
+          lineHeight={{base:'24px',md:"1.59vw"}}
         >
           {journey?.title}
         </Text>
         <Flex gap={'16px'} alignItems={'center'} cursor={'pointer'}>
-          <Text opacity={hovered ? 1:0} transition={'opacity 0.3s ease-in-out'} fontSize={"1vw"} color={"#E6E6E6"}>See More</Text>
+      
+        <Text base={{base:'none',md:'block'}} opacity={hovered ? 1:0} transition={'opacity 0.3s ease-in-out'} fontSize={"1vw"} color={"#E6E6E6"}>See More</Text>
+       
         <IconButton
           rounded={"full"}
           bg={hovered ? "rgba(255, 255, 255, 0.075)" : "transparent"}
@@ -79,15 +82,16 @@ const Journey = ({journey}) => {
         zIndex={2}
         color={"white"}
         fontWeight={"400"}
-        fontSize={"1.06vw"}
-        lineHeight={"1.46vw"}
-        my={"1.59vw"}
+        fontSize={{base:'18px',md:"1.06vw"}}
+        lineHeight={{base:'20px',md:"1.46vw"}}
+        my={{base:'12px',md:"1.59vw"}}
       >
         {journey?.sub}
       </Text>
 
       <Box
       cursor={'n-resize'}
+      maxH={{base:'180px' ,md:'unset'}}
         position="relative"
         zIndex={2}
         className={poppins.className}
@@ -117,12 +121,12 @@ const Journey = ({journey}) => {
         
       >
         {journey?.data?.map((step,index)=>(
-          <Flex key={index} gap={"1.46vw"}  mb={'1.25vw'}>
+          <Flex key={index} gap={{base:'16px',md:"1.46vw"}}  mb={'1.25vw'}>
           <Text
             color={"#CCCCCC"}
             fontWeight={"500"}
-            fontSize={"1vw"}
-            lineHeight={"1.98vw"}
+            fontSize={{base:'16px',md:"1vw"}}
+            lineHeight={{base:'20px',md:"1.98vw"}}
             whiteSpace="nowrap"
            
           >
@@ -131,8 +135,8 @@ const Journey = ({journey}) => {
           <Text
             color={"#E6E6E6"}
             fontWeight={"400"}
-            fontSize={"1.25vw"}
-            lineHeight={"1.79vw"}
+            fontSize={{base:'14px',md:"1.25vw"}}
+            lineHeight={{base:'18px',md:"1.79vw"}}
           >
              {step?.shortdescription}
           </Text>

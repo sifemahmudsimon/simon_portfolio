@@ -22,10 +22,10 @@ const MyStacks = ({ stacks }) => {
       p={{base:'16px',md:"1.32vw"}}
       pb={{md:"1.85vw"}}
     >
-      <Box>
+      <Box mb={{base:'16px',md:0}}>
         <Flex
           fontWeight={"500"}
-          fontSize={{base:'18x',md:"0.93vw"}}
+          fontSize={{base:'18px',md:"0.93vw"}}
           lineHeight={{base:'24px',md:"1.26vw"}}
           w={"100%"}
           justifyContent={"center"}
@@ -33,7 +33,7 @@ const MyStacks = ({ stacks }) => {
           color={"#CCCCCC"}
           gap={{base:'8px',md:"0.53vw"}}
           mt={{md:"0.66vw"}}
-          mb={{md:"1.06vw"}}
+          mb={{base:'8px',md:"1.06vw"}}
         >
           <Box boxSize={{base:'22px',md:"1.19vw"}}>
             <svg
@@ -61,8 +61,8 @@ const MyStacks = ({ stacks }) => {
           color={"#999999"}
           textAlign={"center"}
           fontWeight={"500"}
-          fontSize={{base:'14px',md:"0.93vw"}}
-          lineHeight={{base:'20px',md:"1.26vw"}}
+          fontSize={{base:'16px',md:"0.93vw"}}
+          lineHeight={{base:'24px',md:"1.26vw"}}
         >
           {stacks?.sub}
         </Text>

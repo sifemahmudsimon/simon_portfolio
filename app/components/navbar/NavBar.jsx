@@ -1,5 +1,5 @@
 "use client";
-import { Box, Container, Flex, Tabs, TabsList, Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Show, Tabs, TabsList, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Poppins } from "next/font/google";
 import { motion } from "framer-motion";
@@ -58,15 +58,17 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
         alignItems={"center"}
         bg={"#101010"}
         maxW={{ md: isHomeSection ? "43.35%" : "93.4vw" }}
-        h={{ md: "4.23vw" }}
+        h={{base:'76px', md: "4.23vw" }}
         p={"0.53vw"}
         border={"0.066vw solid rgba(255, 255, 255, 0.06)"}
-        borderRadius={isHomeSection ? "5.29vw" : "1.058vw"}
+        borderRadius={{base:'12px',md:isHomeSection ? "5.29vw" : "1.058vw"}}
         boxShadow={"0px 0.93vw 2.01vw 0px rgba(0, 0, 0, 0.25)"}
         transition="max-width 0.3s ease-in-out 0.1s"
         justifyContent={{base:'center',md:"end"}}
       >
+       
         <MotionText
+        display={{base:'none',md:'block'}}
           color="white"
           flex={1}
           initial={{ opacity: 0, display: "none" }}
@@ -85,6 +87,8 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
         >
           S M Simon
         </MotionText>
+   
+       
 
         {/* Dynamically setting key to trigger re-render */}
         <Tabs.Root

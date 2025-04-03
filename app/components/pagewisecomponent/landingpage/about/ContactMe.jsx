@@ -14,7 +14,7 @@ export default function MyComponent() {
       justifyContent={"space-between"}
       w={"100%"}
       position={"relative"}
-      overflow={"hidden"}
+      // overflow={"hidden"}
       bg={"#101010"}
       boxShadow={"0px 0px 0px 1px rgba(255, 255, 255, 0.06)"}
       borderRadius={{base:'12px',md:'1.32vw'}}
@@ -26,8 +26,8 @@ export default function MyComponent() {
         <Text
           fontWeight={"300"}
           color={"#CCCCCC"}
-          fontSize={{base:'16px',md:"1.06vw"}}
-          lineHeight={{base:'16px',md:"1.36vw"}}
+          fontSize={{base:'18px',md:"1.06vw"}}
+          lineHeight={{base:'22px',md:"1.36vw"}}
         >
           Have some <br /> questions?
         </Text>
@@ -42,7 +42,7 @@ export default function MyComponent() {
           // _hover={{ 
           //   bg: "rgba(255, 255, 255, 0.075)", 
           //   transform:'rotate(45deg)'
-          // }}
+        // }}
         >
           <svg
             width="100%"
@@ -72,6 +72,7 @@ export default function MyComponent() {
         Contact me
       </Text>
 
+      <Box w={"100%"} h={'100%'} position={'absolute'} zIndex={1} top={0} left={0} borderRadius={{base:'12px',md:'1.32vw'}} overflow={'hidden'}>
       <Image
         src="/staticimage/card.png"
         alt="Card"
@@ -79,14 +80,15 @@ export default function MyComponent() {
         objectFit="cover"
         style={{
           filter: "brightness(40%)",
-          zIndex: 1,
-          position: "absolute",
-          top: 0,
-          left: 0,
+          // zIndex: 1,
+          // position: "absolute",
+          // top: 0,
+          // left: 0,
           transition: 'transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)', // Smooth transition for transform
           transform: hovered ? 'scale(1.25)' : 'scale(1) translateX(0)', // Hover effect
         }}
       />
+      </Box>
     </Flex>
   );
 }

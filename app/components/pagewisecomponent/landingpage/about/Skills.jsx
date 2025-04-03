@@ -8,7 +8,7 @@ const Skills = () => {
     position={'relative'}
     flex={1}
     w={"100%"}
-    bg={"#101010"}
+    bg={{base:"linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.2) 75%)",md:"#101010"}}
     // boxShadow={"0px 0px 15px rgba(255, 255, 255, 0.1)"}
     borderRadius={{base:'12px',md:'1.32vw'}}
     overflow={'hidden'}

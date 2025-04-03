@@ -54,12 +54,12 @@ const Profile = ({ profile }) => {
               }}
               alignItems={"center"}
               fontWeight={"500"}
-              fontSize={{ base: "12px", md: "0.93vw" }}
+              fontSize={{ base: "14px", md: "0.93vw" }}
               lineHeight={{ base: "16px", md: "1.26vw" }}
               color={"#999999"}
             >
               <Box
-                boxSize={{ base: "12px", md: "1.19vw" }}
+                boxSize={{ base: "16px", md: "1.19vw" }}
                 color={profile?.avaiablity?.color}
               >
                 <svg
@@ -87,8 +87,8 @@ const Profile = ({ profile }) => {
                 alignItems={"center"}
                 gap={"8px"}
                 fontWeight={"500"}
-                fontSize={{ base: "12px", md: "0.86vw" }}
-                lineHeight={{ base: "12px", md: "1.18vw" }}
+                fontSize={{ base: "14px", md: "0.86vw" }}
+                lineHeight={{ base: "16px", md: "1.18vw" }}
                 color={"#CCCCCC"}
                 p={0}
                 onMouseEnter={() => setIsHovered((prev) => !prev)}
@@ -96,7 +96,7 @@ const Profile = ({ profile }) => {
               >
                 {profile?.resume?.name?.toLowerCase()}
                 <Icon
-                  boxSize={{ base: "28px", md: "2.32vw" }}
+                  boxSize={{ base: "36px", md: "2.32vw" }}
                   color={isHovered ? "#916CE7" : "#282828"}
                   transition="color 0.3s ease"
                 >
@@ -135,7 +135,7 @@ const Profile = ({ profile }) => {
             </Text>
             <Text
               fontWeight={"500"}
-              fontSize={{ base: "13px", md: "0.93vw" }}
+              fontSize={{ base: "14px", md: "0.93vw" }}
               lineHeight={{ base: "16px", md: "1.26vw" }}
               color={"#999999"}
             >
@@ -153,8 +153,8 @@ const Profile = ({ profile }) => {
         my={'12px'}
         h={{ md: "6.5vw" }}
         fontWeight={"300"}
-        fontSize={{ base: "10px", md: "0.93vw" }}
-        lineHeight={{ base: "14px", md: "1.26vw" }}
+        fontSize={{ base: "146x", md: "0.93vw" }}
+        lineHeight={{ base: "20px", md: "1.26vw" }}
       >
         {profile?.about}
       </Text>
@@ -166,13 +166,13 @@ const Profile = ({ profile }) => {
           maxH={{ md: "3.3vw" }}
           w="100%"
           fontWeight={"500"}
-          fontSize={{ base: "12px", md: "0.86vw" }}
-          lineHeight={{ base: "16px", md: "1.19vw" }}
+          fontSize={{ base: "16px", md: "0.86vw" }}
+          lineHeight={{ base: "1px", md: "1.19vw" }}
           color={"#CCCCCC"}
           gap={{ base: "4px", md: "0.53vw" }}
           rounded={{ base: "8px", md: "0.66vw" }}
         >
-          <Icon boxSize={{ base: "16px", md: "1.19vw" }}>
+          <Icon boxSize={{ base: "22px", md: "1.19vw" }}>
             <svg
               width="100%"
               height="100%"

@@ -16,7 +16,7 @@ const About = ({profile,journey,stacks,projects,gallary}) => {
       pt={"8vw"}
       h={"100%"}
       px={"0.53vw"}
-      pb={"1.92vw"}
+      pb={{base:'100px',md:"1.92vw"}}
       maxW={"94.5vw"}
       mx={"auto"}
     >
