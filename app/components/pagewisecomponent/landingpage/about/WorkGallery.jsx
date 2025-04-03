@@ -65,7 +65,7 @@ const WorkGallery = ({ projects }) => {
           {projects?.sub}
         </Text>
       </Box>
-      <Box mt={{base:'16px',md:"1.85vw"}} mr={{base:'12px',md:"1.32vw"}}>
+      <Box mt={{base:'16px',md:"1.85vw"}} mr={{base:'0px',md:"0vw"}}>
         <Swiper
           className={`${style.custom}`}
           // spaceBetween={'12px'}

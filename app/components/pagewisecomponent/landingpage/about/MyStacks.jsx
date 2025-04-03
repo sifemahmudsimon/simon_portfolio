@@ -82,7 +82,7 @@ const MyStacks = ({ stacks }) => {
             alignItems={"center"}
           >
             <Icon
-              boxSize={{base:"35px",md:'2.31px'}}
+              boxSize={{base:"35px",md:'2.31vw'}}
               bg={"#282828"}
               color={"#CCCCCC"}
               p={"0.35vw"}

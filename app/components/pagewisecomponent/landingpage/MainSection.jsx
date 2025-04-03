@@ -138,7 +138,7 @@ const MainSection = ({profile}) => {
     </Flex>
 
 
-    <Flex display={{md:'none'}} roundedLeft={'24px'} position={'absolute'} right={0} bottom={'15%'}  w={'85%'} bg={'rgba(128, 128, 128, 0.75)'} py={'24px'} pr={'8px'}>
+    <Flex display={{md:'none'}} roundedLeft={'24px'} position={'absolute'} right={0} bottom={'150px'}  w={'85%'} bg={'rgba(128, 128, 128, 0.75)'} py={'24px'} pr={'8px'}>
       <Box textAlign={"right"}>
         <Text
           mb={{base:'16px', md: "1.59vw" }}
