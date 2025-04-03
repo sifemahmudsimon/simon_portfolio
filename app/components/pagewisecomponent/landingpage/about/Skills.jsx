@@ -4,12 +4,13 @@ import React from "react";
 const Skills = () => {
   return (
     <Box
+    p={{base:'32px',md:'none'}}
     position={'relative'}
     flex={1}
     w={"100%"}
     bg={"#101010"}
     // boxShadow={"0px 0px 15px rgba(255, 255, 255, 0.1)"}
-    borderRadius={"20px"}
+    borderRadius={{base:'12px',md:'1.32vw'}}
     overflow={'hidden'}
     transition="all 0.3s ease-in-out"  
     _hover={{
@@ -23,13 +24,14 @@ const Skills = () => {
   >
   <Text
     fontWeight={"900"}
-    fontSize={'5vw'}
+    fontSize={{base:'56px',md:'5vw'}}
     color={"rgba(255, 255, 255, 0.35)"}
-    position={'absolute'}
-    bottom={'6vw'}  // Position it vertically at the center
-    left={'7.65vw'}  // Position it horizontally at the center
-    transform={'translate(-50%, -50%) rotate(-90deg)'} // Center the text and rotate it
-    whiteSpace="nowrap" // Prevent text from wrapping if it's long
+    position={{md:'absolute'}}
+    bottom={{md:'6vw'}} 
+    left={{md:'7.65vw'}} 
+    transform={{md:'translate(-50%, -50%) rotate(-90deg)'}} 
+    whiteSpace="nowrap"
+    textAlign={{base:'center',md:'none'}}
   > 
     SKILLSETS
   </Text>

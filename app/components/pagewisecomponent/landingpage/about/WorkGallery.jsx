@@ -13,29 +13,30 @@ import Image from "next/image";
 const WorkGallery = ({ projects }) => {
   return (
     <Box
+    mb={{base:'16px',md:'none'}}
       h={"100%"}
       w={"100%"}
-      maxH={"18.00vw"}
+      maxH={{md:"18.00vw"}}
       bg={"#101010"}
-      boxShadow={"0px 0px 0px 1px rgba(255, 255, 255, 0.06)"}
-      borderRadius={"20px"}
-      pt={"1.32vw"}
-      pb={"1.85vw"}
+      boxShadow={{base:"0px 0px 0px 1px rgba(255, 255, 255, 0.06)",md:"0px 0px 0px 0.066vw rgba(255, 255, 255, 0.06)"}}
+      borderRadius={{base:'12px',md:'1.32vw'}}
+      pt={{base:'16px',md:"1.32vw"}}
+      pb={{base:'16px',md:"1.85vw"}}
     >
       <Box>
         <Flex
           fontWeight={"500"}
-          fontSize={"0.93vw"}
-          lineHeight={"1.26vw"}
+          fontSize={{base:'18px',md:"0.93vw"}}
+          lineHeight={{base:'24px',md:"1.26vw"}}
           w={"100%"}
           justifyContent={"center"}
           alignItems={"center"}
           color={"#CCCCCC"}
-          gap={"0.53vw"}
-          mt={"0.66vw"}
+          gap={{md:"0.53vw"}}
+          mt={{md:"0.66vw"}}
           // mb={"1.06vw"}
         >
-          <Box boxSize={"1.19vw"}>
+          <Box boxSize={{base:'22px',md:"1.19vw"}}>
             <svg
               width="18"
               height="19"
@@ -57,14 +58,14 @@ const WorkGallery = ({ projects }) => {
           color={"#999999"}
           textAlign={"center"}
           fontWeight={"600"}
-          fontSize={"1.06vw"}
-          lineHeight={"1.59vw"}
-          letterSpacing={'0.125vw'}
+          fontSize={{base:'16px',md:"1.06vw"}}
+          lineHeight={{base:'20px',md:"1.59vw"}}
+          letterSpacing={{base:'2.75px',md:'0.125vw'}}
         >
           {projects?.sub}
         </Text>
       </Box>
-      <Box mt={"1.85vw"} mr={"1.32vw"}>
+      <Box mt={{base:'16px',md:"1.85vw"}} mr={{base:'12px',md:"1.32vw"}}>
         <Swiper
           className={`${style.custom}`}
           // spaceBetween={'12px'}
@@ -105,17 +106,17 @@ const WorkGallery = ({ projects }) => {
       </Box>
       <Button
         bg={"#916CE7"}
-        border={"0.13vw solid #101010"}
-        borderRadius={"0.79vw"}
-        w={"100%"}
-        maxW={"8.92vw"}
-        h={"2.98vw"}
+        border={{base:"1px solid #101010",md:"0.13vw solid #101010"}}
+        borderRadius={{base:'4px',md:"0.79vw"}}
+        w={{md:"100%"}}
+        maxW={{md:"8.92vw"}}
+        h={{base:'28px',md:"2.98vw"}}
         mx="auto"
-        mt={"-0.75vw"}
+        mt={{base:'-12px',md:"-0.75vw"}}
         display="block"
         zIndex={10}
         fontWeight={500}
-        fontSize={"0.93vw"}
+        fontSize={{base:'10px',md:"0.93vw"}}
         lineHeight={"1.26vw"}
       >
         View Works
