@@ -68,7 +68,7 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
       >
        
         <MotionText
-        display={{base:'none',md:'block'}}
+        display={{base:'none !important',md:'block'}}
           color="white"
           flex={1}
           initial={{ opacity: 0, display: "none" }}

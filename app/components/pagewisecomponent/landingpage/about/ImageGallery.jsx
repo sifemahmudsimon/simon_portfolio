@@ -38,7 +38,7 @@ const ImageGallery = ({gallary}) => {
       >
         {gallary?.map((image,index)=>(
           <SwiperSlide key={index}>
-          <Flex justify="center" align="center" h="100%"> 
+          <Flex justify="center" align="center" h="100%"  css={{ filter:  "grayscale(100%)" }}> 
             <Image
               src={image?.url}
               alt="Card"

@@ -179,7 +179,8 @@ const projects ={
       subtitle:'Parcel Tracking System',
       description:'This project is an enhanced version that integrates a user and corporate parcel tracking system, supporting both national and international shipments. It has been designed using a combination of Tailwind CSS and the MUI library for a modern and responsive user interface. The core architecture is built with React and Next.js, utilizing the Next.js App Router for efficient routing and optimizaation.',
       stacks:[],
-      url:'',
+      url:'/sundarban',
+      link:''
     },
     {
       bannerimage:'/projectimage/skitto.png',
@@ -188,7 +189,8 @@ const projects ={
       subtitle:'project by Grameenphone',
       description:'This project focused on the complete redevelopment of skitto.com, transitioning it from a legacy website into a modern, feature-rich platform utilizing cutting-edge technologies. The redesign prioritized enhancing user experience, boosting performance, and incorporating dynamic features to address evolving user needs.',
       stacks:[],
-      url:'',
+      url:'/skitto-revamp',
+      link:''
     },
     {
       bannerimage:'/projectimage/gpfi.jpg',
@@ -197,7 +199,8 @@ const projects ={
       subtitle:'project by Grameenphone',
       description:'',
       stacks:[],
-      url:'',
+      url:'/grameenphone-gpfi',
+      link:'gpfi.grameenphone.com'
     }
   ]
 }

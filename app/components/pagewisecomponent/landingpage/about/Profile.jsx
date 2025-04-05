@@ -7,7 +7,7 @@ import React, { useState } from "react";
 const Profile = ({ profile }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  console.log(isHovered);
+  
   return (
     <Flex
     mb={{base:'16px',md:'none'}}

@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const WorkGallery = ({ projects }) => {
@@ -80,6 +81,7 @@ const WorkGallery = ({ projects }) => {
         >
           {projects?.data?.map((data, index) => (
             <SwiperSlide key={index} >
+              <Link href={`/projects/${data?.url}`}>
               <Image
                 alt="image"
                 src={data?.bannerimage}
@@ -87,11 +89,13 @@ const WorkGallery = ({ projects }) => {
                 objectPosition="center"
                 fill
               />
+              </Link>
             </SwiperSlide>
             
           ))}
           {projects?.data?.map((data, index) => (
             <SwiperSlide key={index}>
+             <Link href={`/projects/${data?.url}`}>
               <Image
                 alt="image"
                 src={data?.bannerimage}
@@ -99,6 +103,7 @@ const WorkGallery = ({ projects }) => {
                 objectPosition="center"
                 fill
               />
+              </Link>
             </SwiperSlide>
             
           ))}
@@ -121,6 +126,7 @@ const WorkGallery = ({ projects }) => {
       >
         View Works
       </Button>
+      
     </Box>
   );
 };

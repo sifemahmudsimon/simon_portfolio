@@ -110,7 +110,7 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
       <Box id={home_section_id}>
         <MainSection {...{ profile }} />
       </Box>
-      <Box bg="black"  h={{md:"100vh"}}id={about_section_id}>
+      <Box bg="black"  h={{md:"100vh"}} id={about_section_id}>
         <About {...{ profile, journey, stacks, projects, gallary }} />
       </Box>
     </Box>
