@@ -39,7 +39,7 @@ const ProjectCards = ({ data }) => {
         transition="opacity 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out"
       >
         <Center
-        display={{base:'none',md:"rgba(0, 0, 0, 0.6)"}}
+        display={{base:'none',md:"flex"}}
           h="100%"
           w="100%"
           cursor={"pointer"}
