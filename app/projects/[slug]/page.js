@@ -1,4 +1,5 @@
 import NavBar from "@/app/components/navbar/NavBar";
+import HeroScrollDemo from "@/components/container-scroll-animation-demo";
 import MacbookScrollDemo from "@/components/macbook-scroll-demo";
 import { Box, Flex } from "@chakra-ui/react";
 
