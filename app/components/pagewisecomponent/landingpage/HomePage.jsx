@@ -1,14 +1,18 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import MainSection from './MainSection';
-import About from './About';
-import { Box } from '@chakra-ui/react';
-import NavBar from '../../navbar/NavBar';
-import { usePathname, useSearchParams } from 'next/navigation'; // Import for the App Router
+"use client";
+import React, { useEffect, useState } from "react";
+import MainSection from "./MainSection";
+import About from "./About";
+import { Box } from "@chakra-ui/react";
+import NavBar from "../../navbar/NavBar";
+import { usePathname, useSearchParams } from "next/navigation"; // Import for the App Router
 
 const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
-  let home_section_id = navlist?.find(data => data.name.toLowerCase().includes('home'))?.name.toLowerCase();
-  let about_section_id = navlist?.find(data => data.name.toLowerCase().includes('about'))?.name.toLowerCase();
+  let home_section_id = navlist
+    ?.find((data) => data.name.toLowerCase().includes("home"))
+    ?.name.toLowerCase();
+  let about_section_id = navlist
+    ?.find((data) => data.name.toLowerCase().includes("about"))
+    ?.name.toLowerCase();
 
   const [isHomeSection, setIsHomeSection] = useState(true);
   const [homePageNav, setHomePageNav] = useState(false);
@@ -16,8 +20,8 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
 
   // Fetch session storage value once client-side
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedClickedItem = sessionStorage.getItem('navClick');
+    if (typeof window !== "undefined") {
+      const storedClickedItem = sessionStorage.getItem("navClick");
       setClickedItem(storedClickedItem);
     }
   }, []);
@@ -28,22 +32,27 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
     let hasScrolledUp = false;
 
     const handleScroll = () => {
-      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      const currentScroll =
+        window.pageYOffset || document.documentElement.scrollTop;
 
       if (currentScroll > lastScrollTop && !hasScrolledDown) {
         hasScrolledDown = true;
         hasScrolledUp = false;
-        const targetSection = document.getElementById(about_section_id.toLowerCase());
+        const targetSection = document.getElementById(
+          about_section_id.toLowerCase()
+        );
         if (targetSection && window.innerWidth > 768) {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
+          targetSection.scrollIntoView({ behavior: "smooth" });
           setIsHomeSection(false);
         }
       } else if (currentScroll < lastScrollTop && !hasScrolledUp) {
         hasScrolledUp = true;
         hasScrolledDown = false;
-        const targetSection = document.getElementById(home_section_id.toLowerCase());
+        const targetSection = document.getElementById(
+          home_section_id.toLowerCase()
+        );
         if (targetSection && window.innerWidth > 768) {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
+          targetSection.scrollIntoView({ behavior: "smooth" });
           setIsHomeSection(true);
         }
       }
@@ -51,8 +60,8 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [home_section_id, about_section_id]);
 
   useEffect(() => {
@@ -71,7 +80,7 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
               setHomePageNav(about_section_id);
             }
 
-            sessionStorage.setItem('navClick', sectionId); // Store active section in sessionStorage
+            sessionStorage.setItem("navClick", sectionId); // Store active section in sessionStorage
           }
         });
       },
@@ -79,7 +88,9 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
     );
 
     const homeSection = document.getElementById(home_section_id.toLowerCase());
-    const aboutSection = document.getElementById(about_section_id.toLowerCase());
+    const aboutSection = document.getElementById(
+      about_section_id.toLowerCase()
+    );
 
     if (homeSection) observer.observe(homeSection);
     if (aboutSection) observer.observe(aboutSection);
@@ -91,10 +102,10 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
   }, [home_section_id, about_section_id]);
 
   useEffect(() => {
-    if (clickedItem && typeof window !== 'undefined') {
+    if (clickedItem && typeof window !== "undefined") {
       const targetSection = document.getElementById(clickedItem.toLowerCase());
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
+        targetSection.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [clickedItem]);
@@ -102,16 +113,42 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
   return (
     <Box position="relative">
       {/* Uncomment this if you want to show a fixed NavBar */}
-      <Box position="fixed" w="100%"  
-      top={{md:'0'}}   bottom={{base:"0",md:'unset'}} 
-      zIndex={100}>
-        <NavBar isHomeSection={isHomeSection} homePageNav={homePageNav} setClickedItem={setClickedItem} navlist={navlist} />
+      <Box
+        position="fixed"
+        w="100%"
+        top={{ md: "0" }}
+        bottom={{ base: "0", md: "unset" }}
+        zIndex={100}
+      >
+        <NavBar
+          isHomeSection={isHomeSection}
+          homePageNav={homePageNav}
+          setClickedItem={setClickedItem}
+          navlist={navlist}
+        />
       </Box>
       <Box id={home_section_id}>
         <MainSection {...{ profile }} />
       </Box>
-      <Box bg="black"  h={{md:"100vh"}} id={about_section_id}>
+      <Box
+        position="relative"
+        bg="black"
+        h={{ md: "100vh" }}
+        id={about_section_id}
+      >
         <About {...{ profile, journey, stacks, projects, gallary }} />
+        <Box
+          pointerEvents="none"
+          zIndex={0}
+          position="absolute"
+          inset={0}
+          opacity={0.45}
+          bgGradient="
+    radial-gradient(circle at 25% 35%, rgba(99, 102, 241, 0.45), transparent 35%),
+    radial-gradient(circle at 70% 65%, rgba(139, 92, 246, 0.35), transparent 40%)
+  "
+          filter="blur(35px)"
+        />
       </Box>
     </Box>
   );

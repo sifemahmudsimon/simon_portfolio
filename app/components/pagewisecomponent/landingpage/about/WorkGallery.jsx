@@ -10,34 +10,72 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import Link from "next/link";
 
-
 const WorkGallery = ({ projects }) => {
   return (
     <Box
-    mb={{base:'16px',md:'none'}}
+      mb={{ base: "16px", md: "none" }}
       h={"100%"}
       w={"100%"}
-      maxH={{md:"18.00vw"}}
-      bg={"#101010"}
-      boxShadow={{base:"0px 0px 0px 1px rgba(255, 255, 255, 0.06)",md:"0px 0px 0px 0.066vw rgba(255, 255, 255, 0.06)"}}
-      borderRadius={{base:'12px',md:'1.32vw'}}
-      pt={{base:'16px',md:"1.32vw"}}
-      pb={{base:'16px',md:"1.85vw"}}
+      maxH={{ md: "18.00vw" }}
+      /* GLASS BASE */
+      bg="rgba(18, 18, 18, 0.30)"
+      backdropFilter="blur(18px)"
+      WebkitBackdropFilter="blur(18px)"
+      border="1px solid rgba(255, 255, 255, 0.08)"
+      boxShadow="0 10px 40px rgba(0, 0, 0, 0.35)"
+      borderRadius={{ base: "12px", md: "1.32vw" }}
+      position="relative"
+      overflow="hidden"
+      pt={{ base: "16px", md: "1.32vw" }}
+      pb={{ base: "16px", md: "1.85vw" }}
+      transition="all 0.4s ease"
+      _hover={{
+        transform: "translateY(-6px) scale(1.015)",
+        bg: "rgba(22, 22, 22, 0.38)",
+        boxShadow:
+          "0 18px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05)",
+      }}
+      /* 🔮 SOFT REFLECTION LAYER */
+      _before={{
+        content: '""',
+        position: "absolute",
+        top: "-60%",
+        left: "-60%",
+        width: "220%",
+        height: "220%",
+
+        background:
+          "radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.05), transparent 55%)",
+
+        filter: "blur(25px)",
+        opacity: 0.6,
+
+        transition: "all 0.25s ease",
+        pointerEvents: "none",
+      }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        e.currentTarget.style.setProperty("--x", `${x}%`);
+        e.currentTarget.style.setProperty("--y", `${y}%`);
+      }}
     >
       <Box>
         <Flex
           fontWeight={"500"}
-          fontSize={{base:'18px',md:"0.93vw"}}
-          lineHeight={{base:'24px',md:"1.26vw"}}
+          fontSize={{ base: "18px", md: "0.93vw" }}
+          lineHeight={{ base: "24px", md: "1.26vw" }}
           w={"100%"}
           justifyContent={"center"}
           alignItems={"center"}
           color={"#CCCCCC"}
-          gap={{md:"0.53vw"}}
-          mt={{md:"0.66vw"}}
+          gap={{ md: "0.53vw" }}
+          mt={{ md: "0.66vw" }}
           // mb={"1.06vw"}
         >
-          <Box boxSize={{base:'22px',md:"1.19vw"}}>
+          <Box boxSize={{ base: "22px", md: "1.19vw" }}>
             <svg
               width="18"
               height="19"
@@ -59,14 +97,14 @@ const WorkGallery = ({ projects }) => {
           color={"#999999"}
           textAlign={"center"}
           fontWeight={"600"}
-          fontSize={{base:'16px',md:"1.06vw"}}
-          lineHeight={{base:'20px',md:"1.59vw"}}
-          letterSpacing={{base:'2.75px',md:'0.125vw'}}
+          fontSize={{ base: "16px", md: "1.06vw" }}
+          lineHeight={{ base: "20px", md: "1.59vw" }}
+          letterSpacing={{ base: "2.75px", md: "0.125vw" }}
         >
           {projects?.sub}
         </Text>
       </Box>
-      <Box mt={{base:'16px',md:"1.85vw"}} mr={{base:'0px',md:"0vw"}}>
+      <Box mt={{ base: "16px", md: "1.85vw" }} mr={{ base: "0px", md: "0vw" }}>
         <Swiper
           className={`${style.custom}`}
           // spaceBetween={'12px'}
@@ -80,53 +118,50 @@ const WorkGallery = ({ projects }) => {
           }}
         >
           {projects?.data?.map((data, index) => (
-            <SwiperSlide key={index} >
+            <SwiperSlide key={index}>
               <Link href={`/projects/${data?.url}`}>
-              <Image
-                alt="image"
-                src={data?.bannerimage}
-                objectFit="cover"
-                objectPosition="center"
-                fill
-              />
+                <Image
+                  alt="image"
+                  src={data?.bannerimage}
+                  objectFit="cover"
+                  objectPosition="center"
+                  fill
+                />
               </Link>
             </SwiperSlide>
-            
           ))}
           {projects?.data?.map((data, index) => (
             <SwiperSlide key={index}>
-             <Link href={`/projects/${data?.url}`}>
-              <Image
-                alt="image"
-                src={data?.bannerimage}
-                objectFit="cover"
-                objectPosition="center"
-                fill
-              />
+              <Link href={`/projects/${data?.url}`}>
+                <Image
+                  alt="image"
+                  src={data?.bannerimage}
+                  objectFit="cover"
+                  objectPosition="center"
+                  fill
+                />
               </Link>
             </SwiperSlide>
-            
           ))}
         </Swiper>
       </Box>
       <Button
         bg={"#916CE7"}
-        border={{base:"1px solid #101010",md:"0.13vw solid #101010"}}
-        borderRadius={{base:'4px',md:"0.79vw"}}
-        w={{md:"100%"}}
-        maxW={{md:"8.92vw"}}
-        h={{base:'28px',md:"2.98vw"}}
+        border={{ base: "1px solid #101010", md: "0.13vw solid #101010" }}
+        borderRadius={{ base: "4px", md: "0.79vw" }}
+        w={{ md: "100%" }}
+        maxW={{ md: "8.92vw" }}
+        h={{ base: "28px", md: "2.98vw" }}
         mx="auto"
-        mt={{base:'-12px',md:"-0.75vw"}}
+        mt={{ base: "-12px", md: "-0.75vw" }}
         display="block"
         zIndex={10}
         fontWeight={500}
-        fontSize={{base:'14px',md:"0.93vw"}}
-        lineHeight={{base:'18px',md:"1.26vw"}}
+        fontSize={{ base: "14px", md: "0.93vw" }}
+        lineHeight={{ base: "18px", md: "1.26vw" }}
       >
         View Works
       </Button>
-      
     </Box>
   );
 };

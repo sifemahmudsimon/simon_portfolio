@@ -12,30 +12,69 @@ import React from "react";
 const MyStacks = ({ stacks }) => {
   return (
     <Box
-    mb={{base:'16px',md:'none'}}
+      mb={{ base: "16px", md: "none" }}
       h={"100%"}
       w={"100%"}
-      maxH={{md:"15.28vw"}}
-      bg={"#101010"}
-      boxShadow={"0px 0px 0px 1px rgba(255, 255, 255, 0.06)"}
-      borderRadius={{base:'12px',md:'1.32vw'}}
-      p={{base:'16px',md:"1.32vw"}}
-      pb={{md:"1.85vw"}}
+      maxH={{ md: "15.28vw" }}
+      /* GLASS BASE */
+      bg="rgba(18, 18, 18, 0.30)"
+      backdropFilter="blur(18px)"
+      WebkitBackdropFilter="blur(18px)"
+      border="1px solid rgba(255, 255, 255, 0.08)"
+      boxShadow="0 10px 40px rgba(0, 0, 0, 0.35)"
+      borderRadius={{ base: "12px", md: "1.32vw" }}
+      position="relative"
+      overflow="hidden"
+      p={{ base: "16px", md: "1.32vw" }}
+      pb={{ md: "1.85vw" }}
+      transition="all 0.4s ease"
+      _hover={{
+        transform: "translateY(-6px) scale(1.015)",
+        bg: "rgba(22, 22, 22, 0.38)",
+        boxShadow:
+          "0 18px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05)",
+      }}
+      /* 🔮 SOFT REFLECTION */
+      _before={{
+        content: '""',
+        position: "absolute",
+        top: "-60%",
+        left: "-60%",
+        width: "220%",
+        height: "220%",
+
+        background:
+          "radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.05), transparent 55%)",
+
+        filter: "blur(25px)",
+        opacity: 0.5,
+
+        transition: "all 0.25s ease",
+        pointerEvents: "none",
+      }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        e.currentTarget.style.setProperty("--x", `${x}%`);
+        e.currentTarget.style.setProperty("--y", `${y}%`);
+      }}
     >
-      <Box mb={{base:'16px',md:0}}>
+      <Box mb={{ base: "16px", md: 0 }}>
         <Flex
           fontWeight={"500"}
-          fontSize={{base:'18px',md:"0.93vw"}}
-          lineHeight={{base:'24px',md:"1.26vw"}}
+          fontSize={{ base: "18px", md: "0.93vw" }}
+          lineHeight={{ base: "24px", md: "1.26vw" }}
           w={"100%"}
           justifyContent={"center"}
           alignItems={"center"}
           color={"#CCCCCC"}
-          gap={{base:'8px',md:"0.53vw"}}
-          mt={{md:"0.66vw"}}
-          mb={{base:'8px',md:"1.06vw"}}
+          gap={{ base: "8px", md: "0.53vw" }}
+          mt={{ md: "0.66vw" }}
+          mb={{ base: "8px", md: "1.06vw" }}
         >
-          <Box boxSize={{base:'22px',md:"1.19vw"}}>
+          <Box boxSize={{ base: "22px", md: "1.19vw" }}>
             <svg
               width="100%"
               height="100%"
@@ -61,28 +100,32 @@ const MyStacks = ({ stacks }) => {
           color={"#999999"}
           textAlign={"center"}
           fontWeight={"500"}
-          fontSize={{base:'16px',md:"0.93vw"}}
-          lineHeight={{base:'24px',md:"1.26vw"}}
+          fontSize={{ base: "16px", md: "0.93vw" }}
+          lineHeight={{ base: "24px", md: "1.26vw" }}
         >
           {stacks?.sub}
         </Text>
       </Box>
 
-      <Grid templateColumns={"repeat(2, 1fr)"} gap={{base:'8px',md:"0.53vw"}} mt={{base:'8px',md:"1.06vw"}}>
+      <Grid
+        templateColumns={"repeat(2, 1fr)"}
+        gap={{ base: "8px", md: "0.53vw" }}
+        mt={{ base: "8px", md: "1.06vw" }}
+      >
         {stacks?.data?.map((data, index) => (
           <GridItem
             key={index}
             display={"flex"}
             flex={1}
-            gap={{base:'8px',md:"0.39vw"}}
+            gap={{ base: "8px", md: "0.39vw" }}
             bg={"#191919"}
-            h={{md:"3.17vw"}}
-            p={{base:'8px',md:"0.53vw"}}
-            rounded={{base:'8px',md:"0.79vw"}}
+            h={{ md: "3.17vw" }}
+            p={{ base: "8px", md: "0.53vw" }}
+            rounded={{ base: "8px", md: "0.79vw" }}
             alignItems={"center"}
           >
             <Icon
-              boxSize={{base:"35px",md:'2.31vw'}}
+              boxSize={{ base: "35px", md: "2.31vw" }}
               bg={"#282828"}
               color={"#CCCCCC"}
               p={"0.35vw"}
@@ -93,8 +136,8 @@ const MyStacks = ({ stacks }) => {
             <Text
               color={"#CCCCCC"}
               fontWeight={500}
-              fontSize={{base:'16px',md:"0.93vw"}}
-              lineHeight={{md:"1.26vw"}}
+              fontSize={{ base: "16px", md: "0.93vw" }}
+              lineHeight={{ md: "1.26vw" }}
             >
               {data?.name}
             </Text>

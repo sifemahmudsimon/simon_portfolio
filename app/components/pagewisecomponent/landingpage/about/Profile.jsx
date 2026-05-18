@@ -7,19 +7,56 @@ import React, { useState } from "react";
 const Profile = ({ profile }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  
   return (
     <Flex
-    mb={{base:'16px',md:'none'}}
-      flexDir={"column"}
-      justifyContent={"space-between"}
+      mb={{ base: "16px", md: "none" }}
+      flexDir="column"
+      justifyContent="space-between"
       flex={1}
-      w={"100%"}
-      bg={"#101010"}
-      boxShadow={"0px 0px 0px 1px rgba(255, 255, 255, 0.06)"}
-      borderRadius={{base:'12px',md:'1.32vw'}}
-      position={"relative"}
+      w="100%"
+      /* GLASS BASE */
+      bg="rgba(18, 18, 18, 0.30)"
+      backdropFilter="blur(18px)"
+      WebkitBackdropFilter="blur(18px)"
+      border="1px solid rgba(255, 255, 255, 0.08)"
+      boxShadow="0 10px 40px rgba(0, 0, 0, 0.35)"
+      borderRadius={{ base: "12px", md: "1.32vw" }}
+      position="relative"
+      overflow="hidden"
       p={{ base: "16px", md: "1.32vw" }}
+      transition="all 0.4s ease"
+      _hover={{
+        transform: "translateY(-6px) scale(1.015)",
+        bg: "rgba(22, 22, 22, 0.38)",
+        boxShadow:
+          "0 18px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05)",
+      }}
+      /* 🔮 SOFT REFLECTION LAYER */
+      _before={{
+        content: '""',
+        position: "absolute",
+        top: "-60%",
+        left: "-60%",
+        width: "220%",
+        height: "220%",
+
+        background:
+          "radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.05), transparent 55%)",
+
+        filter: "blur(25px)",
+        opacity: 0.5,
+
+        transition: "all 0.25s ease",
+        pointerEvents: "none",
+      }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        e.currentTarget.style.setProperty("--x", `${x}%`);
+        e.currentTarget.style.setProperty("--y", `${y}%`);
+      }}
     >
       <Flex gap={{ base: "8px", md: "1.06vw" }}>
         <Box
@@ -150,7 +187,7 @@ const Profile = ({ profile }) => {
       </Flex>
       <Text
         color={{ base: "#E6E6E6", md: "white" }}
-        my={'12px'}
+        my={"12px"}
         h={{ md: "6.5vw" }}
         fontWeight={"300"}
         fontSize={{ base: "146x", md: "0.93vw" }}

@@ -1,5 +1,13 @@
 "use client";
-import { Box, Container, Flex, Show, Tabs, TabsList, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Flex,
+  Show,
+  Tabs,
+  TabsList,
+  Text,
+} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Poppins } from "next/font/google";
 import { motion } from "framer-motion";
@@ -21,10 +29,8 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
     navlist.findIndex((item) => item.url === pathname)
   );
 
-
   useEffect(() => {
     if (homePageNav) {
-
       setActiveIndex(
         navlist.findIndex((item) => item.name.toLowerCase() === homePageNav)
       );
@@ -32,12 +38,12 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
   }, [homePageNav]);
 
   const redirectUrl = (data, index) => {
-    if (typeof window !== "undefined") {  // Ensure this is only run in the browser
-      sessionStorage.setItem('navClick', data.name);
+    if (typeof window !== "undefined") {
+      // Ensure this is only run in the browser
+      sessionStorage.setItem("navClick", data.name);
     }
     if (typeof setClickedItem === "function") {
       setClickedItem(data.name);
-      
     }
     if (pathname !== data?.url) {
       router.push(data?.url);
@@ -46,9 +52,9 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
 
   return (
     <Flex
-      pt={{md: isHomeSection ? "1vw" : "2vw" }}
-      pb={{base:'8px',md:'none'}}
-      px={{base:'16px',md:'none'}}
+      pt={{ md: isHomeSection ? "1vw" : "2vw" }}
+      pb={{ base: "8px", md: "0px" }}
+      px={{ base: "16px", md: "none" }}
       transition="padding-top 0.1s ease-in-out"
     >
       <Container
@@ -58,17 +64,19 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
         alignItems={"center"}
         bg={"#101010"}
         maxW={{ md: isHomeSection ? "43.35%" : "93.4vw" }}
-        h={{base:'76px', md: "4.23vw" }}
+        h={{ base: "76px", md: "4.23vw" }}
         p={"0.53vw"}
         border={"0.066vw solid rgba(255, 255, 255, 0.06)"}
-        borderRadius={{base:'12px',md:isHomeSection ? "5.29vw" : "1.058vw"}}
+        borderRadius={{
+          base: "12px",
+          md: isHomeSection ? "5.29vw" : "1.058vw",
+        }}
         boxShadow={"0px 0.93vw 2.01vw 0px rgba(0, 0, 0, 0.25)"}
         transition="max-width 0.3s ease-in-out 0.1s"
-        justifyContent={{base:'center',md:"end"}}
+        justifyContent={{ base: "center", md: "end" }}
       >
-       
         <MotionText
-        display={{base:'none !important',md:'block !important'}}
+          display={{ base: "none !important", md: "block !important" }}
           color="white"
           flex={1}
           initial={{ opacity: 0, display: "none" }}
@@ -87,8 +95,6 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
         >
           S M Simon
         </MotionText>
-   
-       
 
         {/* Dynamically setting key to trigger re-render */}
         <Tabs.Root

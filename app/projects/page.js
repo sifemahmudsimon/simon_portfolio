@@ -1,95 +1,270 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import React from "react";
+"use client";
+
+import { Box } from "@chakra-ui/react";
+import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import NavBar from "../components/navbar/NavBar";
-import ProjectCards from "../components/pagewisecomponent/projects/ProjectCards";
-import ProjectMain from "../components/pagewisecomponent/projects/ProjectMain";
-import { GET_METHOD } from "../service-pattern/api-request-service";
-import { CATEGORY_TYPES } from "../service-pattern/api-data-service";
+import { ExternalLink } from "lucide-react";
+
+const MemoNavBar = React.memo(NavBar);
 
 const navlist = [
   { name: "Home", url: "/#" },
-  // { name: "About", url: "/?about" },
   { name: "About", url: "/#" },
   { name: "Projects", url: "/projects" },
   { name: "Contact", url: "/contact" },
 ];
 
-const category_types = [
-  { type: 1, name: "Featured" },
-  { type: 2, name: "Mini Projects" },
-  { type: 3, name: "Medium Projects" },
-  { type: 4, name: "Large Projects" },
-  { type: 5, name: "Customized Projects" },
+const categories = [
+  { id: null, name: "All" },
+  { id: 1, name: "Featured" },
+  { id: 2, name: "Mini" },
+  { id: 3, name: "Medium" },
+  { id: 4, name: "Large" },
+  { id: 5, name: "Custom" },
 ];
 
-async function getProjects() {
-  try {
-    const res = await fetch("http://localhost:3000/api/projects", {
-      cache: "no-store",
-    });
+export default function Project() {
+  const [projects, setProjects] = useState([]);
+  const [active, setActive] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch projects");
+  // FETCH DATA
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const res = await fetch("/api/projects");
+        const json = await res.json();
+        setProjects(json.data || []);
+      } catch (err) {
+        console.log("Failed to load projects", err);
+      }
     }
 
-    return res.json();
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-}
+    fetchProjects();
+  }, []);
 
-const Project = async () => {
-  //   let dataToBeSent = {};  // Initialize the dataToBeSent object
+  // SCROLL EFFECT FOR NAVBAR GLASS
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
 
-  //   try {
-  //     const data = await GET_METHOD({
-  //       URL: Home_Page_End_Point,  // Replace with the actual endpoint
-  //     });
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  //     dataToBeSent.page_data = data.data;  // Assign the fetched data to page_data
-  //     console.log('Data to be sent:', dataToBeSent);  // Optional: log the result
-  //   } catch (error) {
-  //     console.log('Error fetching data:', error);  // Handle errors gracefully
-  //   }
-
-  //   return dataToBeSent;  // Return the data that was fetched and assigned
-  // }
-
-  const projects = await getProjects();
+  // FILTER
+  const filteredProjects = useMemo(() => {
+    if (active === null) return projects;
+    return projects.filter((p) => p.category.includes(active));
+  }, [active, projects]);
 
   return (
-    <Box position="relative">
-      <Box position={"fixed"} w={"100%"} zIndex={100}>
+    <Box position="relative" minH="100vh" bg="#050505" color="white">
+      {/* NAVBAR (GLASS ON SCROLL) */}
+      <Box position="fixed" w="100%" top={0} zIndex={100}>
         <Box
-          position="fixed"
           w="100%"
-          top={{ md: "0" }}
-          bottom={{ base: "0", md: "unset" }}
-          zIndex={100}
+          backdropFilter={scrolled ? "blur(4px)" : "blur(0px)"}
+          WebkitBackdropFilter={scrolled ? "blur(4px)" : "blur(0px)"}
+          transition="all 0.3s ease"
         >
-          <NavBar navlist={navlist} />
+          <MemoNavBar navlist={navlist} />
         </Box>
       </Box>
 
-      <ProjectMain {...{ category_types, projects }} />
+      {/* BACKGROUND */}
       <Box
-        position="fixed"
-        top={{ base: "auto", md: -4 }} // For base, don't set top, and for md, set it to -4
-        bottom={{ base: -4, md: "auto" }} // For base, set bottom to 0, and for md, don't set bottom
-        left={0}
-        right={0}
-        height={{ base: "150px", md: "10vw" }}
-        bg={{
-          base: "linear-gradient(to top, rgba(0, 0, 0, .9) 25%, rgba(0, 0, 0, 0))", // From bottom for base
-          md: "linear-gradient(to bottom, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0))", // From top for md
-        }}
-        filter="blur(10px)"
-        pointerEvents="none"
-        zIndex={20}
+        position="absolute"
+        inset={0}
+        opacity={0.6}
+        bgGradient="radial-gradient(circle at 20% 20%, rgba(168,85,247,0.25), transparent 40%), radial-gradient(circle at 80% 80%, rgba(59,130,246,0.25), transparent 40%)"
       />
+
+      {/* CONTENT */}
+      <Box
+        maxW="7xl"
+        mx="auto"
+        px={6}
+        pt={{ base: "120px", md: "140px" }}
+        pb={32}
+        position="relative"
+        zIndex={1}
+      >
+        {/* FILTER BAR */}
+        <Box
+          position="sticky"
+          top={{ base: "90px", md: "110px" }}
+          zIndex={50}
+          mb={10}
+        >
+          <Box
+            display="flex"
+            gap={2}
+            flexWrap="wrap"
+            bg="blackAlpha.500"
+            backdropFilter="blur(12px)"
+            p={3}
+            borderRadius="full"
+            border="1px solid rgba(255,255,255,0.08)"
+            w="fit-content"
+          >
+            {categories.map((c) => {
+              const isActive = active === c.id;
+
+              return (
+                <Box
+                  key={c.name}
+                  as="button"
+                  onClick={() => setActive(c.id)}
+                  px={4}
+                  py={1.5}
+                  borderRadius="full"
+                  fontSize="sm"
+                  bg={isActive ? "white" : "transparent"}
+                  color={isActive ? "black" : "whiteAlpha.700"}
+                  border="1px solid rgba(255,255,255,0.1)"
+                >
+                  {c.name}
+                </Box>
+              );
+            })}
+          </Box>
+        </Box>
+
+        {/* CARD LIST */}
+        <Box display="flex" flexDirection="column" gap={20}>
+          {filteredProjects.map((p, i) => (
+            <motion.div
+              key={p.url}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+            >
+              <Box
+                display="flex"
+                flexDirection={{
+                  base: "column",
+                  md: i % 2 === 1 ? "row-reverse" : "row",
+                }}
+                gap={10}
+                alignItems="center"
+              >
+                {/* IMAGE */}
+                <Box flex="1">
+                  <Box
+                    position="relative"
+                    overflow="hidden"
+                    borderRadius="3xl"
+                    border="1px solid rgba(255,255,255,0.08)"
+                    height={{ base: "240px", md: "340px" }}
+                  >
+                    <Box
+                      position="absolute"
+                      inset={0}
+                      bgGradient="linear(to-br, purple.500, blue.500)"
+                      opacity={0.3}
+                    />
+
+                    <img
+                      src={p.bannerimage}
+                      alt={p.title}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        position: "absolute",
+                      }}
+                    />
+
+                    <Box
+                      position="absolute"
+                      top="12px"
+                      right="12px"
+                      bg="blackAlpha.700"
+                      px={3}
+                      py={1}
+                      borderRadius="full"
+                      fontSize="xs"
+                    >
+                      {p.company}
+                    </Box>
+                  </Box>
+                </Box>
+
+                {/* TEXT */}
+                <Box flex="1">
+                  <Box fontSize="xs" color="whiteAlpha.500">
+                    {p.subtitle}
+                  </Box>
+
+                  <Box fontSize={{ base: "2xl", md: "3xl" }} mt={2}>
+                    {p.title}
+                  </Box>
+
+                  <Box mt={4} color="whiteAlpha.700">
+                    {p.description}
+                  </Box>
+
+                  {/* STACKS */}
+                  <Box display="flex" flexWrap="wrap" gap={2} mt={6}>
+                    {p.stacks?.map((s) => (
+                      <Box
+                        key={s}
+                        px={3}
+                        py={1}
+                        fontSize="xs"
+                        borderRadius="full"
+                        border="1px solid rgba(255,255,255,0.12)"
+                        bg="whiteAlpha.50"
+                      >
+                        {s}
+                      </Box>
+                    ))}
+                  </Box>
+
+                  {/* BUTTONS */}
+                  <Box display="flex" gap={3} mt={7}>
+                    <Box
+                      as="a"
+                      href={"projects/" + p.url}
+                      bg="white"
+                      color="black"
+                      px={5}
+                      py={2}
+                      borderRadius="full"
+                      fontSize="sm"
+                    >
+                      Case Study
+                    </Box>
+
+                    {p.link && (
+                      <Box
+                        as="a"
+                        href={p.link}
+                        target="_blank"
+                        border="1px solid rgba(255,255,255,0.2)"
+                        px={5}
+                        py={2}
+                        borderRadius="full"
+                        display="flex"
+                        alignItems="center"
+                        gap={2}
+                        fontSize="sm"
+                        color="whiteAlpha.700"
+                      >
+                        Live <ExternalLink size={14} />
+                      </Box>
+                    )}
+                  </Box>
+                </Box>
+              </Box>
+            </motion.div>
+          ))}
+        </Box>
+      </Box>
     </Box>
   );
-};
-
-export default Project;
+}

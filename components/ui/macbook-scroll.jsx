@@ -137,7 +137,7 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
         className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
-        <Image src={src} fill objectFit="cover" />
+        <Image src={src} alt="" fill objectFit="cover" />
       </motion.div>
     </div>
   );

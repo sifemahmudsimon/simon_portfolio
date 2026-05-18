@@ -59,6 +59,17 @@ const Skills = () => {
             },
           }}
         >
+          <Box
+            position="absolute"
+            inset={0}
+            opacity={0.3}
+            pointerEvents="none"
+            zIndex={0}
+            bgGradient="
+    radial-gradient(circle at 80% 30%, rgba(145, 108, 231, 0.35), transparent 50%)
+  "
+            filter="blur(40px)"
+          />
           <HStack justify="space-between" mb="32px">
             <Text
               fontSize={{ base: "28px", md: "36px" }}
