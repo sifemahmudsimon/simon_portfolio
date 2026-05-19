@@ -65,9 +65,9 @@ export const MacbookScroll = ({ src, showGradient, title, badge }) => {
           translateY: textTransform,
           opacity: textOpacity,
         }}
-        className="mb-20 text-center !text-[5vw] font-bold text-neutral-800 dark:text-white"
+        className="mb-20  font-bold  dark:text-white bg-clip-text text-center text-transparent drop-shadow-2xl !text-9xl bg-gradient-to-b from-white/80 to-white/20"
       >
-        {title || <span>Project Title</span>}
+        {title}
       </motion.h2>
       {/* Lid */}
       <Lid
@@ -78,10 +78,10 @@ export const MacbookScroll = ({ src, showGradient, title, badge }) => {
         translate={translate}
       />
       {/* Base area */}
-      <div className="relative -z-10 h-[50dvh] md:h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200 dark:bg-[#272729]">
+      <div className="relative -z-10 h-[50dvh] md:h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-[#272729] dark:bg-[#272729]">
         {/* above keyboard bar */}
         <div className="relative h-10 w-full">
-          <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
+          <div className="absolute inset-x-0 w-full mx-auto h-4 w-[80%] bg-[#050505]" />
         </div>
         <div className="relative flex">
           <div className="mx-auto h-full w-[10%] overflow-hidden">
@@ -94,10 +94,12 @@ export const MacbookScroll = ({ src, showGradient, title, badge }) => {
             <SpeakerGrid />
           </div>
         </div>
-        <Trackpad />
-        <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
+        <div className="flex justify-center items-center w-full">
+          <Trackpad />
+        </div>
+        <div className="absolute left-1/2 bottom-0 -translate-x-1/2 h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-r from-[#050505] to-[#272729]" />
         {showGradient && (
-          <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
+          <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-black via-black dark:from-black dark:via-black"></div>
         )}
         {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
       </div>
@@ -137,7 +139,7 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
         className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
-        <Image src={src} alt="" fill objectFit="cover" />
+        <Image src={src} alt="" fill />
       </motion.div>
     </div>
   );
@@ -158,7 +160,7 @@ export const Keypad = () => {
   return (
     <div className="mx-1 h-full !text-[6px] [transform:translateZ(0)] rounded-md bg-[#050505] p-1 [will-change:transform]">
       {/* First Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[2px] flex justify-center  w-full shrink-0 gap-[2px]">
         <KBtn
           className="w-10 items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
@@ -220,7 +222,7 @@ export const Keypad = () => {
         </KBtn>
       </div>
       {/* Second row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[2px] flex justify-center  w-full shrink-0 gap-[2px]">
         <KBtn>
           <span className="block">~</span>
           <span className="mt-1 block">`</span>
@@ -281,7 +283,7 @@ export const Keypad = () => {
         </KBtn>
       </div>
       {/* Third row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[2px] flex  justify-center w-full shrink-0 gap-[2px]">
         <KBtn
           className="w-10 items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
@@ -332,7 +334,7 @@ export const Keypad = () => {
         </KBtn>
       </div>
       {/* Fourth Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[2px] flex justify-center  w-full shrink-0 gap-[2px]">
         <KBtn
           className="w-[2.8rem] items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
@@ -382,7 +384,7 @@ export const Keypad = () => {
         </KBtn>
       </div>
       {/* Fifth Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[2px] flex justify-center  w-full shrink-0 gap-[2px]">
         <KBtn
           className="w-[3.65rem] items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
@@ -430,7 +432,7 @@ export const Keypad = () => {
         </KBtn>
       </div>
       {/* sixth Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[2px] flex justify-center  w-full shrink-0 gap-[2px]">
         <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
           <div className="flex w-full justify-end pr-1">
             <span className="block">fn</span>

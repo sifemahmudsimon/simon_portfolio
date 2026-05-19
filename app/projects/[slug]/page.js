@@ -3,13 +3,6 @@ import HeroScrollDemo from "@/components/container-scroll-animation-demo";
 import MacbookScrollDemo from "@/components/macbook-scroll-demo";
 import { Box, Flex } from "@chakra-ui/react";
 
-const navlist = [
-  { name: "Home", url: "/#" },
-  { name: "About", url: "/#" },
-  { name: "Projects", url: "/projects" },
-  { name: "Contact", url: "/contact" },
-];
-
 async function getProject(slug) {
   const res = await fetch("http://localhost:3000/api/projects", {
     cache: "no-store",
@@ -27,20 +20,11 @@ const Page = async ({ params }) => {
 
   return (
     <>
-      <Box
-        w="100%"
-        pt={{ base: "6px", md: "0" }}
-        bottom={{ base: "0", md: "unset" }}
-        zIndex={100}
-      >
-        <NavBar navlist={navlist} />
-      </Box>
-
       <Box position="relative">
-        <Box pt={{ base: "0px", md: "4.23vw" }}>
+        <Box>
           <MacbookScrollDemo
             title={project?.title}
-            src={project?.bannerimage}
+            src={project?.projectdemo}
           />
         </Box>
 

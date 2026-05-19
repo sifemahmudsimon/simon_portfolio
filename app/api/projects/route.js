@@ -6,6 +6,7 @@ export async function GET() {
       {
         category: [1],
         bannerimage: "/projectimage/sundarban.png",
+        projectdemo: "/projectimage/screenshots/sundarban.png",
         company: "Sundarban",
         title: "Shundarban Courier Service Ltd",
         subtitle: "Parcel Tracking System",
@@ -18,6 +19,7 @@ export async function GET() {
       {
         category: [1, 3],
         bannerimage: "/projectimage/skitto.png",
+        projectdemo: "/projectimage/screenshots/skitto.png",
         company: "SKITTO",
         title: "Skitto (Revamp)",
         subtitle: "project by Grameenphone",
@@ -30,6 +32,7 @@ export async function GET() {
       {
         category: [1, 4, 5],
         bannerimage: "/projectimage/gpfi.jpg",
+        projectdemo: "/projectimage/screenshots/gpfi.png",
         company: "Grameenphone",
         title: "GpFi (Revamp)",
         subtitle: "project by Grameenphone",
