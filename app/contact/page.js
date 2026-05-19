@@ -123,22 +123,25 @@ function Page() {
           <NavBar navlist={navlist} />
         </Box>
       </Box>
-   
+
       <BackgroundGradientAnimation>
-        <div className="absolute z-50 inset-0 flex gap-15 items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl md:text-4xl lg:text-7xl">
+        <div className="absolute z-50 inset-0 flex flex-col md:flex-row gap-6 md:gap-12 items-center justify-center text-white font-bold px-4 md:px-10 pointer-events-none">
+          {/* KEEP AS-IS */}
           <p className="bg-clip-text text-center text-transparent drop-shadow-2xl !text-9xl bg-gradient-to-b from-white/80 to-white/20">
             Lets Talk
           </p>
-          <div className="relative w-[600px] h-[350px] [perspective:1200px]">
+
+          {/* RESPONSIVE FIX ONLY HERE */}
+          <div className="relative w-full max-w-[520px] md:w-[600px] aspect-[16/9] md:aspect-[16/10] [perspective:1200px]">
             {/* TERMINAL */}
             <div
-              className={`absolute inset-0 w-full h-full transition-all duration-700 [transform-style:preserve-3d] [backface-visibility:hidden] ${
+              className={`absolute inset-0 transition-all duration-700 [transform-style:preserve-3d] [backface-visibility:hidden] ${
                 done
                   ? "[transform:rotateY(180deg)] opacity-0"
                   : "[transform:rotateY(0deg)] opacity-100"
               }`}
             >
-              <div className="w-full h-full">
+              <div className="w-full min-h-[300px] h-full rounded-xl overflow-hidden">
                 <Terminal
                   commands={["npm install", "npm run dev"]}
                   outputs={{
@@ -163,7 +166,7 @@ function Page() {
                   : "[transform:rotateY(-180deg)] opacity-0"
               }`}
             >
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center p-3">
                 <ContactForm />
               </div>
             </div>
