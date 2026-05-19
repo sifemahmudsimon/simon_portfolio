@@ -1,8 +1,15 @@
 "use client";
+import BackgroundGradientAnimationDemo from "@/components/background-gradient-animation-demo";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
+import { Box } from "@chakra-ui/react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import NavBar from "../components/navbar/NavBar";
+import TerminalDemo from "@/components/terminal-demo";
+import { Terminal } from "@/components/ui/terminal";
+import ContactForm from "../components/pagewisecomponent/contact/ContactForm";
 
 const images = [
   "https://assets.aceternity.com/cloudinary_bkp/3d-card.png",
@@ -87,17 +94,84 @@ const content = [
   },
 ];
 
-function page() {
+const navlist = [
+  { name: "Home", url: "/#" },
+  { name: "About", url: "/#" },
+  { name: "Projects", url: "/projects" },
+  { name: "Contact", url: "/contact" },
+];
+
+function Page() {
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDone(true);
+    }, 7000); // ⬅️ 5 seconds flip
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
-      <div className="w-full py-4">
-        <StickyScroll content={content} />
-      </div>
-      <div className="mx-auto my-10 max-w-full rounded-3xl bg-gray-950/5 p-2 ring-1 ring-neutral-700/10 dark:bg-neutral-800">
-        <ThreeDMarquee images={images} />
-      </div>
+      <Box position="fixed" w="100%" top={0} zIndex={100}>
+        <Box
+          w="100%"
+          backdropFilter={"blur(0px)"}
+          WebkitBackdropFilter={"blur(0px)"}
+          transition="all 0.3s ease"
+        >
+          <NavBar navlist={navlist} />
+        </Box>
+      </Box>
+   
+      <BackgroundGradientAnimation>
+        <div className="absolute z-50 inset-0 flex gap-15 items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl md:text-4xl lg:text-7xl">
+          <p className="bg-clip-text text-center text-transparent drop-shadow-2xl !text-9xl bg-gradient-to-b from-white/80 to-white/20">
+            Lets Talk
+          </p>
+          <div className="relative w-[600px] h-[350px] [perspective:1200px]">
+            {/* TERMINAL */}
+            <div
+              className={`absolute inset-0 w-full h-full transition-all duration-700 [transform-style:preserve-3d] [backface-visibility:hidden] ${
+                done
+                  ? "[transform:rotateY(180deg)] opacity-0"
+                  : "[transform:rotateY(0deg)] opacity-100"
+              }`}
+            >
+              <div className="w-full h-full">
+                <Terminal
+                  commands={["npm install", "npm run dev"]}
+                  outputs={{
+                    0: ["added 124 packages in 6s", "found 0 vulnerabilities"],
+                    1: [
+                      "▲ Next.js 15.1.7",
+                      "✓ Compiled successfully",
+                      "✓ Ready at http://localhost:3000",
+                    ],
+                  }}
+                  typingSpeed={45}
+                  delayBetweenCommands={1000}
+                />
+              </div>
+            </div>
+
+            {/* FORM */}
+            <div
+              className={`absolute inset-0 transition-all duration-700 [transform-style:preserve-3d] [backface-visibility:hidden] ${
+                done
+                  ? "[transform:rotateY(0deg)] opacity-100"
+                  : "[transform:rotateY(-180deg)] opacity-0"
+              }`}
+            >
+              <div className="w-full h-full flex items-center justify-center">
+                <ContactForm />
+              </div>
+            </div>
+          </div>
+        </div>
+      </BackgroundGradientAnimation>
     </>
   );
 }
 
-export default page;
+export default Page;

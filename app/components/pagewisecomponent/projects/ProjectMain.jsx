@@ -2,6 +2,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import ProjectCards from "./ProjectCards";
+import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 
 const ProjectMain = ({ category_types, projects }) => {
   const [activeCategory, setActiveCategory] = useState(null);
@@ -13,16 +14,16 @@ const ProjectMain = ({ category_types, projects }) => {
       bg="black"
       w={"100%"}
       minH={"100vh"}
-      pt={{base:'16px',md:"8vw"}}
-      pb={{base:'100px',md:"4vw"}}
-      px={{base:'16px',md:"3.25vw"}}
+      pt={{ base: "16px", md: "8vw" }}
+      pb={{ base: "100px", md: "4vw" }}
+      px={{ base: "16px", md: "3.25vw" }}
       color={"white"}
     >
       <Flex
         flexDir={"column"}
-        gap={{base:categoryClick && '16px',md:"16px"}}
+        gap={{ base: categoryClick && "16px", md: "16px" }}
         p={{ base: "16px", md: "1vw" }}
-        mb={{base:'16px',md:0}}
+        mb={{ base: "16px", md: 0 }}
         position={{ md: "fixed" }}
         w={{ md: "20vw" }}
         h={{ md: "80vh" }}
@@ -45,7 +46,6 @@ const ProjectMain = ({ category_types, projects }) => {
           fontSize={{ base: "20px", md: "1.06vw" }}
           fontWeight={{ base: 200, md: 500 }}
           letterSpacing={{ base: "3.5px", md: "0.2vw" }}
-         
         >
           CATEGORIES
         </Text>
@@ -54,20 +54,21 @@ const ProjectMain = ({ category_types, projects }) => {
           flexDir={{ base: "column", md: "column" }}
           justifyContent={"center"}
           gap={"16px"}
-          h={{base:categoryClick ? 'auto' : '0',md:'auto'}}
-          opacity={{base:categoryClick ? '1' : '0',md:1}}
+          h={{ base: categoryClick ? "auto" : "0", md: "auto" }}
+          opacity={{ base: categoryClick ? "1" : "0", md: 1 }}
           transition="all 1s ease"
-          overflow={'hidden'}
+          overflow={"hidden"}
         >
           <Text
             cursor={"pointer"}
-            onClick={() => {setActiveCategory(null)
-              setCategoryClick(false)
+            onClick={() => {
+              setActiveCategory(null);
+              setCategoryClick(false);
             }}
             w={{ md: "100%" }}
             borderRadius={{ base: "8px", md: "0.79vw" }}
-            px={{base:'8px',md:"1.5vw"}}
-            py={{base:'8px',md:"1vw"}}
+            px={{ base: "8px", md: "1.5vw" }}
+            py={{ base: "8px", md: "1vw" }}
             bg={activeCategory === null ? "#916ce7" : "#191919"}
             fontSize={{ base: "12px", md: "1.06vw" }}
             fontWeight={300}
@@ -79,8 +80,9 @@ const ProjectMain = ({ category_types, projects }) => {
             <Text
               key={index}
               cursor={"pointer"}
-              onClick={() => {setActiveCategory(data?.type)
-                setCategoryClick(false)
+              onClick={() => {
+                setActiveCategory(data?.type);
+                setCategoryClick(false);
               }}
               w={{ md: "100%" }}
               borderRadius={{ base: "8px", md: "0.79vw" }}
@@ -97,11 +99,11 @@ const ProjectMain = ({ category_types, projects }) => {
         </Flex>
       </Flex>
       <Flex
-        w={"100%"}      
-        pl={{md:"22vw"}}
-        flexDir={{base:'column',md:"row"}}
+        w={"100%"}
+        pl={{ md: "22vw" }}
+        flexDir={{ base: "column", md: "row" }}
         justifyContent={"end"}
-        flexWrap={{md:"wrap"}}
+        flexWrap={{ md: "wrap" }}
         gap={"4vw"}
       >
         {activeCategory === null &&

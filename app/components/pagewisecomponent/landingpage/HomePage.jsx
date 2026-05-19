@@ -143,10 +143,7 @@ const HomePage = ({ navlist, profile, journey, stacks, projects, gallary }) => {
           position="absolute"
           inset={0}
           opacity={0.45}
-          bgGradient="
-    radial-gradient(circle at 25% 35%, rgba(99, 102, 241, 0.45), transparent 35%),
-    radial-gradient(circle at 70% 65%, rgba(139, 92, 246, 0.35), transparent 40%)
-  "
+          bgGradient="radial-gradient(circle at 25% 35%, rgba(99, 102, 241, 0.45), transparent 35%), radial-gradient(circle at 70% 65%, rgba(139, 92, 246, 0.35), transparent 40%)"
           filter="blur(35px)"
         />
       </Box>
