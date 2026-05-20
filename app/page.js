@@ -38,7 +38,10 @@ const profile = {
       url: "https://www.linkedin.com/in/sifemahmudsimon/",
     },
   },
-  resume: { name: "Resume", url: "https://drive.google.com/file/d/1wHBtMw16AIJDMGOrfHt_rLkG1OSf1uP4/view?usp=sharing" },
+  resume: {
+    name: "Resume",
+    url: "https://drive.google.com/file/d/1wHBtMw16AIJDMGOrfHt_rLkG1OSf1uP4/view?usp=sharing",
+  },
   avaiablity: {
     status: "Available To Work",
     color: "#6DD33D",
@@ -116,105 +119,67 @@ const stacks = {
       name: "NextJs",
     },
     {
-      icon: (
-        <svg
-          width="800px"
-          height="800px"
-          viewBox="-4 0 23 23"
-          id="meteor-icon-kit__solid-figma"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7 0H3.5C1.567 0 0 1.567 0 3.5C0 5.433 1.567 7 3.5 7H7V0z"
-            fill="currentColor"
-          />
-          <path
-            d="M8 0H11.5C13.433 0 15 1.567 15 3.5C15 5.433 13.433 7 11.5 7H8V0z"
-            fill="currentColor"
-          />
-          <path
-            d="M7 8H3.5C1.567 8 0 9.567 0 11.5C0 13.433 1.567 15 3.5 15H7V8z"
-            fill="currentColor"
-          />
-          <path
-            d="M7 16H3.5C1.567 16 0 17.567 0 19.5C0 21.433 1.567 23 3.5 23C5.433 23 7 21.433 7 19.5V16z"
-            fill="currentColor"
-          />
-          <path
-            d="M11.5 15C13.433 15 15 13.433 15 11.5C15 9.567 13.433 8 11.5 8C9.567 8 8 9.567 8 11.5C8 13.433 9.567 15 11.5 15z"
-            fill="currentColor"
-          />
-        </svg>
-      ),
-      name: "Figma",
+      icon: null,
+      name: "TypeScript",
     },
     {
-      icon: (
-        <svg
-          fill="currentColor"
-          width="800px"
-          height="800px"
-          viewBox="0 0 32 32"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>django</title>
-          <path d="M22.706 1.095h4.882v5.009h-4.882zM27.589 8.609v11.32c0.045 0.437 0.070 0.943 0.070 1.456 0 2.143-0.446 4.181-1.249 6.028l0.038-0.098c-0.871 1.637-2.259 2.903-3.943 3.596l-0.052 0.019-4.534-2.156c1.671-0.593 3.020-1.747 3.85-3.23l0.018-0.036c0.698-1.395 0.919-3.012 0.919-7.26v-9.64h4.882zM14.937 12.445c-0.462-0.162-0.996-0.255-1.55-0.255-0.034 0-0.069 0-0.103 0.001l0.005-0c-0.074-0.005-0.161-0.008-0.248-0.008-2.036 0-3.687 1.651-3.687 3.687 0 0.179 0.013 0.356 0.038 0.528l-0.002-0.020c-0.021 0.146-0.034 0.315-0.034 0.487 0 1.964 1.592 3.556 3.556 3.556 0.122 0 0.242-0.006 0.361-0.018l-0.015 0.001c0.593-0 1.175-0.046 1.743-0.135l-0.063 0.008v-7.832zM14.937 1.069h4.882v22.603c-1.901 0.411-4.089 0.653-6.331 0.666l-0.010 0c-5.961 0-9.068-2.695-9.068-7.864-0.008-0.134-0.013-0.29-0.013-0.447 0-4.302 3.488-7.79 7.79-7.79 0.22 0 0.438 0.009 0.653 0.027l-0.028-0.002c0.045-0.001 0.097-0.001 0.15-0.001 0.702 0 1.382 0.093 2.028 0.267l-0.055-0.012z"></path>
-        </svg>
-      ),
-      name: "Djangp",
+      icon: null,
+      name: "Prisma",
     },
   ],
 };
 
-const projects ={
-  title:'Projects',
-  sub:'spotlight',
-  data:[
+const projects = {
+  title: "Projects",
+  sub: "spotlight",
+  data: [
     {
-      bannerimage:'/projectimage/sundarban.png',
-      company:'Sundarban',
-      title:'Shundarban Courier Service Ltd',
-      subtitle:'Parcel Tracking System',
-      description:'This project is an enhanced version that integrates a user and corporate parcel tracking system, supporting both national and international shipments. It has been designed using a combination of Tailwind CSS and the MUI library for a modern and responsive user interface. The core architecture is built with React and Next.js, utilizing the Next.js App Router for efficient routing and optimizaation.',
-      stacks:[],
-      url:'/sundarban',
-      link:''
+      bannerimage: "/projectimage/sundarban.png",
+      company: "Sundarban",
+      title: "Shundarban Courier Service Ltd",
+      subtitle: "Parcel Tracking System",
+      description:
+        "This project is an enhanced version that integrates a user and corporate parcel tracking system, supporting both national and international shipments. It has been designed using a combination of Tailwind CSS and the MUI library for a modern and responsive user interface. The core architecture is built with React and Next.js, utilizing the Next.js App Router for efficient routing and optimizaation.",
+      stacks: [],
+      url: "/sundarban",
+      link: "",
     },
     {
-      bannerimage:'/projectimage/skitto.png',
-      company:'SKITTO',
-      title:'Skitto (Revamp)',
-      subtitle:'project by Grameenphone',
-      description:'This project focused on the complete redevelopment of skitto.com, transitioning it from a legacy website into a modern, feature-rich platform utilizing cutting-edge technologies. The redesign prioritized enhancing user experience, boosting performance, and incorporating dynamic features to address evolving user needs.',
-      stacks:[],
-      url:'/skitto-revamp',
-      link:''
+      bannerimage: "/projectimage/skitto.png",
+      company: "SKITTO",
+      title: "Skitto (Revamp)",
+      subtitle: "project by Grameenphone",
+      description:
+        "This project focused on the complete redevelopment of skitto.com, transitioning it from a legacy website into a modern, feature-rich platform utilizing cutting-edge technologies. The redesign prioritized enhancing user experience, boosting performance, and incorporating dynamic features to address evolving user needs.",
+      stacks: [],
+      url: "/skitto-revamp",
+      link: "",
     },
     {
-      bannerimage:'/projectimage/gpfi.jpg',
-      company:'Grameenphone',
-      title:'GpFi (Revamp)',
-      subtitle:'project by Grameenphone',
-      description:'',
-      stacks:[],
-      url:'/grameenphone-gpfi',
-      link:'gpfi.grameenphone.com'
-    }
-  ]
-}
+      bannerimage: "/projectimage/gpfi.jpg",
+      company: "Grameenphone",
+      title: "GpFi (Revamp)",
+      subtitle: "project by Grameenphone",
+      description: "",
+      stacks: [],
+      url: "/grameenphone-gpfi",
+      link: "gpfi.grameenphone.com",
+    },
+  ],
+};
 
 const gallary = [
-  {url:'/tempimage/img1.png'},
-  {url:'/tempimage/img3.png'},
-  {url:'/tempimage/img4.png'},
-  {url:'/tempimage/img2.png'},
-]
-
+  { url: "/tempimage/img1.png" },
+  { url: "/tempimage/img3.png" },
+  { url: "/tempimage/img4.png" },
+  { url: "/tempimage/img2.png" },
+];
 
 export default function Home() {
   return (
-    <HomePage navlist={navlist} {...{ navlist, profile, journey, stacks,projects,gallary }} />
+    <HomePage
+      navlist={navlist}
+      {...{ navlist, profile, journey, stacks, projects, gallary }}
+    />
   );
 }

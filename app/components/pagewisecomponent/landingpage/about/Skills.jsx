@@ -7,15 +7,23 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Frontend",
-      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Chakra UI"],
+      skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Material UI",
+        "Shadcn",
+        "Chakra UI",
+      ],
     },
     {
       title: "Backend",
-      skills: ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs"],
+      skills: ["Prisma ORM", "Express", "MySQL", "MongoDB", "REST APIs"],
     },
     {
       title: "Tools & Other",
-      skills: ["Git", "Docker", "AWS", "Vercel", "Figma"],
+      skills: ["Git", "Docker", "Vercel", "Figma"],
     },
   ];
 
@@ -91,7 +99,7 @@ const Skills = () => {
 
           <VStack align="start" spacing="24px">
             {skillCategories.map((category, idx) => (
-              <Box key={idx}>
+              <Box key={idx} mb={10}>
                 <Text
                   fontSize="16px"
                   fontWeight="700"

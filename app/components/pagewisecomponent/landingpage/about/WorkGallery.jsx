@@ -145,23 +145,26 @@ const WorkGallery = ({ projects }) => {
           ))}
         </Swiper>
       </Box>
-      <Button
-        bg={"#916CE7"}
-        border={{ base: "1px solid #101010", md: "0.13vw solid #101010" }}
-        borderRadius={{ base: "4px", md: "0.79vw" }}
-        w={{ md: "100%" }}
-        maxW={{ md: "8.92vw" }}
-        h={{ base: "28px", md: "2.98vw" }}
-        mx="auto"
-        mt={{ base: "-12px", md: "-0.75vw" }}
-        display="block"
-        zIndex={10}
-        fontWeight={500}
-        fontSize={{ base: "14px", md: "0.93vw" }}
-        lineHeight={{ base: "18px", md: "1.26vw" }}
-      >
-        View Works
-      </Button>
+      <Link href={"/projects"}>
+        <Button
+          bg={"#916CE7"}
+          border={{ base: "1px solid #101010", md: "0.13vw solid #101010" }}
+          borderRadius={{ base: "4px", md: "0.79vw" }}
+          w={{ md: "100%" }}
+          maxW={{ md: "8.92vw" }}
+          h={{ base: "28px", md: "2.98vw" }}
+          mx="auto"
+          mt={{ base: "-12px", md: "-0.75vw" }}
+          display="block"
+          zIndex={10}
+          fontWeight={500}
+          fontSize={{ base: "14px", md: "0.93vw" }}
+          lineHeight={{ base: "18px", md: "1.26vw" }}
+          _hover={{ bg: "#B8A0EF" }}
+        >
+          View Works
+        </Button>
+      </Link>
     </Box>
   );
 };

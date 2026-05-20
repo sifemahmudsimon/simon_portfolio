@@ -123,16 +123,22 @@ const MyStacks = ({ stacks }) => {
             p={{ base: "8px", md: "0.53vw" }}
             rounded={{ base: "8px", md: "0.79vw" }}
             alignItems={"center"}
+            justifyContent={data?.icon ? "flex-start" : "center"}
           >
-            <Icon
-              boxSize={{ base: "35px", md: "2.31vw" }}
-              bg={"#282828"}
-              color={"#CCCCCC"}
-              p={"0.35vw"}
-              rounded={"0.39vw"}
-            >
-              {data?.icon ? data?.icon : <span></span>}
-            </Icon>
+            {data?.icon ? (
+              <Icon
+                boxSize={{ base: "35px", md: "2.31vw" }}
+                bg={"#282828"}
+                color={"#CCCCCC"}
+                p={"0.35vw"}
+                rounded={"0.39vw"}
+              >
+                {data?.icon ? data?.icon : <span></span>}
+              </Icon>
+            ) : (
+              ""
+            )}
+
             <Text
               color={"#CCCCCC"}
               fontWeight={500}
