@@ -19,11 +19,12 @@ const navlist = [
 
 const categories = [
   { id: null, name: "All" },
-  { id: 1, name: "Featured" },
-  { id: 2, name: "Mini" },
-  { id: 3, name: "Medium" },
-  { id: 4, name: "Large" },
-  { id: 5, name: "Custom" },
+  { id: 1, name: "Mini" },
+  { id: 2, name: "Medium" },
+  { id: 3, name: "Large" },
+  { id: 4, name: "Frontend" },
+  { id: 5, name: "Backend" },
+  { id: 6, name: "Custom Feature" },
 ];
 
 export default function Project() {

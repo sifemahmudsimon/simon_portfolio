@@ -4,7 +4,11 @@ export async function GET() {
     sub: "spotlight",
     data: [
       {
-        category: [1],
+        category: [2, 4, 6],
+        type: "Frontend Development",
+        year: 2025,
+        duration: "2 months",
+        status: "completed",
         bannerimage: "/projectimage/sundarban.png",
         projectdemo: "/projectimage/screenshots/sundarban.png",
         company: "Sundarban",
@@ -12,7 +16,63 @@ export async function GET() {
         subtitle: "Parcel Tracking System",
         description:
           "This project is an enhanced version that integrates a user and corporate parcel tracking system, supporting both national and international shipments. It has been designed using a combination of Tailwind CSS and the MUI library for a modern and responsive user interface. The core architecture is built with React and Next.js, utilizing the Next.js App Router for efficient routing and optimizaation.",
-        stacks: ["Next.js", "Tailwind CSS", "Shadcn UI", "Prisma"],
+        stacks: ["Next.js", "Material UI", "Axios", "GraphQL"],
+        details: {
+          overview:
+            "The project is a comprehensive parcel tracking system that caters to both individual users and corporate clients. It provides real-time tracking of parcels, allowing users to monitor their shipments from dispatch to delivery. The system supports both national and international shipments, making it versatile for a wide range of users.",
+          features: [
+            "Real-time tracking of parcels",
+            "Support for national and international shipments",
+            "User-friendly interface built with Tailwind CSS and MUI",
+            "Efficient routing and optimization using Next.js App Router",
+            "Integration with GraphQL for seamless data management",
+          ],
+          challenges: [
+            "Handling real-time tracking updates",
+            "Optimizing GraphQL queries for large datasets",
+          ],
+          results: [
+            "Reduced parcel tracking latency by 30%",
+            "Improved UX for corporate users",
+          ],
+          techStack: {
+            frontend: ["Next.js", "Material UI", "Axios", "GraphQL"],
+            backend: ["Next.js", "Material UI", "Axios", "GraphQL"],
+            tools: ["Next.js", "Material UI", "Axios", "GraphQL"],
+          },
+          technologies: [
+            "Next.js for server-side rendering and efficient routing",
+            "Material UI for a modern and responsive user interface",
+            "Tailwind CSS for custom styling and design flexibility",
+            "Axios for handling API requests and responses",
+            "GraphQL for efficient data querying and management",
+          ],
+          responsibilities: ["Built dashboard UI", "Integrated GraphQL APIs"],
+          architecture: {
+            type: "client-server",
+            pattern: "component-based + API-driven",
+            dataFlow: "GraphQL → React Query/Client → UI",
+          },
+          integrations: [
+            "GraphQL API (parcel tracking)",
+            "Authentication system (if any)",
+            "Courier backend system",
+          ],
+          performance: [
+            "Optimized GraphQL queries",
+            "Lazy-loaded tracking components",
+            "Reduced API calls using caching",
+          ],
+          testing: [
+            "Manual testing for tracking flows",
+            "API response validation",
+          ],
+          roles: {
+            user: "Track parcels",
+            corporate: "Bulk tracking + dashboard",
+            admin: "Manage shipments",
+          },
+        },
         url: "/sundarban",
         link: "",
       },
@@ -26,6 +86,62 @@ export async function GET() {
         description:
           "This project focused on the complete redevelopment of skitto.com, transitioning it from a legacy website into a modern, feature-rich platform utilizing cutting-edge technologies. The redesign prioritized enhancing user experience, boosting performance, and incorporating dynamic features to address evolving user needs.",
         stacks: [],
+        details: {
+          overview:
+            "The project is a comprehensive parcel tracking system that caters to both individual users and corporate clients. It provides real-time tracking of parcels, allowing users to monitor their shipments from dispatch to delivery. The system supports both national and international shipments, making it versatile for a wide range of users.",
+          features: [
+            "Real-time tracking of parcels",
+            "Support for national and international shipments",
+            "User-friendly interface built with Tailwind CSS and MUI",
+            "Efficient routing and optimization using Next.js App Router",
+            "Integration with GraphQL for seamless data management",
+          ],
+          challenges: [
+            "Handling real-time tracking updates",
+            "Optimizing GraphQL queries for large datasets",
+          ],
+          results: [
+            "Reduced parcel tracking latency by 30%",
+            "Improved UX for corporate users",
+          ],
+          techStack: {
+            frontend: [],
+            backend: [],
+            tools: [],
+          },
+          responsibilities: ["Built dashboard UI", "Integrated GraphQL APIs"],
+          technologies: [
+            "Next.js for server-side rendering and efficient routing",
+            "Material UI for a modern and responsive user interface",
+            "Tailwind CSS for custom styling and design flexibility",
+            "Axios for handling API requests and responses",
+            "GraphQL for efficient data querying and management",
+          ],
+          architecture: {
+            type: "client-server",
+            pattern: "component-based + API-driven",
+            dataFlow: "GraphQL → React Query/Client → UI",
+          },
+          integrations: [
+            "GraphQL API (parcel tracking)",
+            "Authentication system (if any)",
+            "Courier backend system",
+          ],
+          performance: [
+            "Optimized GraphQL queries",
+            "Lazy-loaded tracking components",
+            "Reduced API calls using caching",
+          ],
+          testing: [
+            "Manual testing for tracking flows",
+            "API response validation",
+          ],
+          roles: {
+            user: "Track parcels",
+            corporate: "Bulk tracking + dashboard",
+            admin: "Manage shipments",
+          },
+        },
         url: "/skitto-revamp",
         link: "",
       },
@@ -38,6 +154,62 @@ export async function GET() {
         subtitle: "project by Grameenphone",
         description: "",
         stacks: [],
+        details: {
+          overview:
+            "The project is a comprehensive parcel tracking system that caters to both individual users and corporate clients. It provides real-time tracking of parcels, allowing users to monitor their shipments from dispatch to delivery. The system supports both national and international shipments, making it versatile for a wide range of users.",
+          features: [
+            "Real-time tracking of parcels",
+            "Support for national and international shipments",
+            "User-friendly interface built with Tailwind CSS and MUI",
+            "Efficient routing and optimization using Next.js App Router",
+            "Integration with GraphQL for seamless data management",
+          ],
+          challenges: [
+            "Handling real-time tracking updates",
+            "Optimizing GraphQL queries for large datasets",
+          ],
+          results: [
+            "Reduced parcel tracking latency by 30%",
+            "Improved UX for corporate users",
+          ],
+          techStack: {
+            frontend: [],
+            backend: [],
+            tools: [],
+          },
+          responsibilities: ["Built dashboard UI", "Integrated GraphQL APIs"],
+          technologies: [
+            "Next.js for server-side rendering and efficient routing",
+            "Material UI for a modern and responsive user interface",
+            "Tailwind CSS for custom styling and design flexibility",
+            "Axios for handling API requests and responses",
+            "GraphQL for efficient data querying and management",
+          ],
+          architecture: {
+            type: "client-server",
+            pattern: "component-based + API-driven",
+            dataFlow: "GraphQL → React Query/Client → UI",
+          },
+          integrations: [
+            "GraphQL API (parcel tracking)",
+            "Authentication system (if any)",
+            "Courier backend system",
+          ],
+          performance: [
+            "Optimized GraphQL queries",
+            "Lazy-loaded tracking components",
+            "Reduced API calls using caching",
+          ],
+          testing: [
+            "Manual testing for tracking flows",
+            "API response validation",
+          ],
+          roles: {
+            user: "Track parcels",
+            corporate: "Bulk tracking + dashboard",
+            admin: "Manage shipments",
+          },
+        },
         url: "/grameenphone-gpfi",
         link: "https://gpfi.grameenphone.com",
       },
