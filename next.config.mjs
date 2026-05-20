@@ -1,19 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
+
   experimental: {
     optimizePackageImports: ["@chakra-ui/react"],
   },
-
-  reactStrictMode: false,
-
-  i18n: {
-    locales: ["en", "bn"],
-    defaultLocale: "en",
-  },
-
-  swcMinify: true,
-
-  turbopack: {},
 
   webpack(config) {
     config.module.rules.push({
@@ -25,9 +16,7 @@ const nextConfig = {
     return config;
   },
 
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  turbopack: {}, // 👈 IMPORTANT (this disables the error)
 };
 
 export default nextConfig;
