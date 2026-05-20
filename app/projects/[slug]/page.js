@@ -4,7 +4,7 @@ import MacbookScrollDemo from "@/components/macbook-scroll-demo";
 import { Box, Flex } from "@chakra-ui/react";
 
 async function getProject(slug) {
-  const res = await fetch("http://localhost:3000/api/projects", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`, {
     cache: "no-store",
   });
 
@@ -16,7 +16,8 @@ async function getProject(slug) {
 }
 
 const Page = async ({ params }) => {
-  const project = await getProject(params.slug);
+  const { slug } = await params;
+  const project = await getProject(slug);
 
   return (
     <>
