@@ -22,23 +22,47 @@ export async function GET() {
             "The project is a comprehensive parcel tracking system that caters to both individual users and corporate clients. It provides real-time tracking of parcels, allowing users to monitor their shipments from dispatch to delivery. The system supports both national and international shipments, making it versatile for a wide range of users.",
           features: [
             "Real-time tracking of parcels",
-            "Support for national and international shipments",
-            "User-friendly interface built with Tailwind CSS and MUI",
-            "Efficient routing and optimization using Next.js App Router",
+            "Price calculation for national and international shipments",
+            "Track table of signle percel and multiple percel",
+            "Career application portal",
             "Integration with GraphQL for seamless data management",
+            "Dynamic homepage design",
           ],
           challenges: [
             "Handling real-time tracking updates",
             "Optimizing GraphQL queries for large datasets",
+            "Maintain Strapi defaul richtext behaviour optimization",
           ],
           results: [
             "Reduced parcel tracking latency by 30%",
             "Improved UX for corporate users",
           ],
           techStack: {
-            frontend: ["Next.js", "Material UI", "Axios", "GraphQL"],
-            backend: ["Next.js", "Material UI", "Axios", "GraphQL"],
-            tools: ["Next.js", "Material UI", "Axios", "GraphQL"],
+            frontend: [
+              "Next.js",
+              "React",
+              "Material UI (MUI)",
+              "Tailwind CSS",
+              "React Hook Form",
+            ],
+
+            backend: ["Strapi & 3rd party api"],
+
+            tools: [
+              "Dayjs",
+              "js-cookie",
+              "clsx",
+              "Next Image (image optimization)",
+              "Emotion",
+              "Redux Toolkit",
+              "React Redux",
+              "Axios",
+              "React Toastify",
+              "React Markdown",
+              "Swiper",
+              "React Slick",
+              "Font Awesome",
+            ],
           },
           technologies: [
             "Next.js for server-side rendering and efficient routing",
@@ -49,12 +73,13 @@ export async function GET() {
           ],
           responsibilities: ["Built dashboard UI", "Integrated GraphQL APIs"],
           architecture: {
-            type: "client-server",
+            type: "server-side  & client-server",
             pattern: "component-based + API-driven",
-            dataFlow: "GraphQL → React Query/Client → UI",
+            dataFlow: "GraphQL/Api → Server/Client → UI",
           },
           integrations: [
             "GraphQL API (parcel tracking)",
+            "CMS api for page details",
             "Authentication system (if any)",
             "Courier backend system",
           ],
@@ -70,7 +95,7 @@ export async function GET() {
           roles: {
             user: "Track parcels",
             corporate: "Bulk tracking + dashboard",
-            admin: "Manage shipments",
+            admin: "Manage page content",
           },
         },
         url: "/sundarban",
