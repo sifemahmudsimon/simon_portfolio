@@ -113,7 +113,13 @@ function Page() {
   }, []);
   return (
     <>
-      <Box position="fixed" w="100%" top={0} zIndex={100}>
+      <Box
+        position="fixed"
+        w="100%"
+        top={0}
+        zIndex={100}
+        pt={{ base: 4, md: 0 }}
+      >
         <Box
           w="100%"
           backdropFilter={"blur(0px)"}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from "@chakra-ui/react";
+import { AspectRatio, Box } from "@chakra-ui/react";
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import NavBar from "../components/navbar/NavBar";
@@ -67,7 +67,13 @@ export default function Project() {
   return (
     <Box position="relative" minH="100vh" bg="#050505" color="white">
       {/* NAVBAR (GLASS ON SCROLL) */}
-      <Box position="fixed" w="100%" top={0} zIndex={100}>
+      <Box
+        position="fixed"
+        w="100%"
+        top={0}
+        zIndex={100}
+        pt={{ base: 4, md: 0 }}
+      >
         <Box
           w="100%"
           backdropFilter={scrolled ? "blur(4px)" : "blur(0px)"}
@@ -107,11 +113,11 @@ export default function Project() {
             display="flex"
             gap={2}
             flexWrap="wrap"
-            bg="blackAlpha.500"
+            bg={{ md: "blackAlpha.500" }}
             backdropFilter="blur(12px)"
             p={3}
-            borderRadius="full"
-            border="1px solid rgba(255,255,255,0.08)"
+            borderRadius={{ base: "md", md: "full" }}
+            border={"1px solid rgba(255,255,255,0.08)"}
             w="fit-content"
           >
             {categories.map((c) => {
@@ -125,7 +131,7 @@ export default function Project() {
                   px={4}
                   py={1.5}
                   borderRadius="full"
-                  fontSize="sm"
+                  fontSize={{ base: "10px", md: "sm" }}
                   bg={isActive ? "white" : "transparent"}
                   color={isActive ? "black" : "whiteAlpha.700"}
                   border="1px solid rgba(255,255,255,0.1)"
@@ -164,40 +170,41 @@ export default function Project() {
               >
                 {/* IMAGE */}
                 <Box
+                  w="100%"
                   flex="1"
                   transition="all 0.2s ease"
-                  _hover={{
-                    transform: "translateY(-2px)",
-                  }}
+                  _hover={{ transform: "translateY(-2px)" }}
                 >
-                  <Box
-                    position="relative"
-                    overflow="hidden"
+                  <AspectRatio
+                    ratio={16 / 9}
                     borderRadius="3xl"
+                    overflow="hidden"
                     border="1px solid rgba(255,255,255,0.08)"
-                    height={{ base: "240px", md: "340px" }}
+                    position="relative"
                   >
-                    <Box
-                      position="absolute"
-                      inset={0}
-                      bgGradient="linear(to-br, purple.500, blue.500)"
-                      opacity={0.3}
-                    />
-                    <Image src={p.bannerimage} alt={p.title} fill />
+                    <Box position="relative" w="100%" h="100%">
+                      <Image
+                        src={p.bannerimage}
+                        alt={p.title}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
 
-                    <Box
-                      position="absolute"
-                      top="12px"
-                      right="12px"
-                      bg="blackAlpha.700"
-                      px={3}
-                      py={1}
-                      borderRadius="full"
-                      fontSize="xs"
-                    >
-                      {p.company}
+                      <Box
+                        position="absolute"
+                        top="12px"
+                        right="12px"
+                        bg="blackAlpha.700"
+                        px={3}
+                        py={1}
+                        borderRadius="full"
+                        fontSize="xs"
+                        zIndex={2}
+                      >
+                        {p.company}
+                      </Box>
                     </Box>
-                  </Box>
+                  </AspectRatio>
                 </Box>
 
                 {/* TEXT */}

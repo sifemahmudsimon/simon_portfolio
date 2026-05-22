@@ -58,14 +58,14 @@ export const MacbookScroll = ({ src, showGradient, title, badge }) => {
   return (
     <div
       ref={ref}
-      className="flex min-h-[100vh] md:min-h-[175vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80"
+      className="flex min-h-[100vh] md:min-h-[150vh] shrink-0 scale-[0.45] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80"
     >
       <motion.h2
         style={{
           translateY: textTransform,
           opacity: textOpacity,
         }}
-        className="mb-20  font-bold  dark:text-white bg-clip-text text-center text-transparent drop-shadow-2xl !text-9xl bg-gradient-to-b from-white/80 to-white/20"
+        className="mb-20  font-bold  dark:text-white bg-clip-text text-center text-transparent drop-shadow-2xl !text-9xl !bg-gradient-to-b from-white/80 to-white/20"
       >
         {title}
       </motion.h2>

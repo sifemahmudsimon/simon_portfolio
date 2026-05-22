@@ -15,7 +15,7 @@ export default function MacbookScrollDemo({ title, src }) {
     <div className="relative w-full overflow-hidden bg-[#0B0B0F] dark:bg-[#0B0B0F]">
       <Box
         w="100%"
-        pt={{ base: "6px", md: "0" }}
+        pt={{ base: 4, md: 0 }}
         bottom={{ base: "0", md: "unset" }}
         zIndex={100}
       >
