@@ -128,6 +128,12 @@ export default function Project() {
                   bg={isActive ? "white" : "transparent"}
                   color={isActive ? "black" : "whiteAlpha.700"}
                   border="1px solid rgba(255,255,255,0.1)"
+                  transition="all 0.2s ease"
+                  cursor={"pointer"}
+                  _hover={{
+                    bg: "rgba(255, 255, 255, 0.2)",
+                    transform: "translateY(-2px)",
+                  }}
                 >
                   {c.name}
                 </Box>
@@ -156,7 +162,13 @@ export default function Project() {
                 alignItems="center"
               >
                 {/* IMAGE */}
-                <Box flex="1">
+                <Box
+                  flex="1"
+                  transition="all 0.2s ease"
+                  _hover={{
+                    transform: "translateY(-2px)",
+                  }}
+                >
                   <Box
                     position="relative"
                     overflow="hidden"
@@ -170,17 +182,7 @@ export default function Project() {
                       bgGradient="linear(to-br, purple.500, blue.500)"
                       opacity={0.3}
                     />
-
-                    <img
-                      src={p.bannerimage}
-                      alt={p.title}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        position: "absolute",
-                      }}
-                    />
+                    <Image src={p.bannerimage} alt={p.title} fill />
 
                     <Box
                       position="absolute"
@@ -222,6 +224,12 @@ export default function Project() {
                         borderRadius="full"
                         border="1px solid rgba(255,255,255,0.12)"
                         bg="whiteAlpha.50"
+                        transition="all 0.2s ease"
+                        cursor={"pointer"}
+                        _hover={{
+                          bg: "rgba(255, 255, 255, 0.2)",
+                          transform: "translateY(-2px)",
+                        }}
                       >
                         {s}
                       </Box>
@@ -238,11 +246,32 @@ export default function Project() {
                       px={5}
                       py={2}
                       borderRadius="full"
+                      transition="all 0.2s ease"
                       fontSize="sm"
+                      _hover={{ bg: "#916CE7", color: "white" }}
                     >
                       Case Study
                     </Box>
-
+                    {p.doc && (
+                      <Box
+                        as="a"
+                        href={p.doc}
+                        target="_blank"
+                        border="1px solid rgba(255,255,255,0.2)"
+                        px={5}
+                        py={2}
+                        borderRadius="full"
+                        display="flex"
+                        alignItems="center"
+                        gap={2}
+                        fontSize="sm"
+                        color="whiteAlpha.700"
+                        transition="all 0.2s ease"
+                        _hover={{ borderColor: "#916CE7", color: "white" }}
+                      >
+                        Doc
+                      </Box>
+                    )}
                     {p.link && (
                       <Box
                         as="a"
@@ -257,6 +286,8 @@ export default function Project() {
                         gap={2}
                         fontSize="sm"
                         color="whiteAlpha.700"
+                        transition="all 0.2s ease"
+                        _hover={{ borderColor: "#916CE7", color: "white" }}
                       >
                         Live <ExternalLink size={14} />
                       </Box>
@@ -278,48 +309,42 @@ export default function Project() {
 
 const content = [
   {
-    title: "Collaborative Editing",
+    title: "Full-Stack Product Engineering",
     description:
-      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+      "I build scalable, production-ready web applications from the ground up using React.js, Next.js, Node.js, Express.js, Prisma, and PostgreSQL/MySQL. From architecture to deployment, I focus on performance, maintainability, and clean developer experience.",
     content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Collaborative Editing
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--blue-500),var(--indigo-600))] text-white !text-xl !font-semibold">
+        Full-Stack Engineering
       </div>
     ),
   },
   {
-    title: "Real time changes",
+    title: "Modern UI & Frontend Systems",
     description:
-      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+      "I create responsive, accessible, and visually polished interfaces with React, Next.js, Tailwind CSS, and Chakra UI. My focus is building fast user experiences that feel smooth, intuitive, and conversion-driven across all devices.",
     content: (
-      <div className="flex h-full w-full items-center justify-center text-white">
-        <Image
-          src="/linear.webp"
-          width={300}
-          height={300}
-          className="h-full w-full object-cover"
-          alt="linear board demo"
-        />
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--blue-500),var(--indigo-600))] text-white !text-xl !font-semibold">
+        Modern UI Design
       </div>
     ),
   },
   {
-    title: "Version control",
+    title: "Backend Architecture & APIs",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "I design secure and efficient backend systems with REST APIs, authentication flows, database design, and server-side logic. I work with Prisma ORM, authentication systems, and scalable application structures used in real-world products.",
     content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
-        Version control
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--emerald-500),var(--teal-600))] text-white !text-xl !font-semibold">
+        APIs & Backend Systems
       </div>
     ),
   },
   {
-    title: "Running out of content",
+    title: "Business-Focused Development",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "Beyond coding, I build solutions that solve business problems. I’ve worked on internal platforms, dashboards, issue trackers, and data-driven applications with a focus on usability, reliability, and long-term scalability for growing businesses.",
     content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Running out of content
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--red-500))] text-white !text-xl !font-semibold">
+        Building Real Products
       </div>
     ),
   },

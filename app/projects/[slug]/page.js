@@ -196,16 +196,22 @@ const Page = async ({ params }) => {
             {/* ROLES */}
             <Section title="User Roles">
               <Box opacity={0.8} lineHeight="1.8">
-                <p>
-                  <strong>User:</strong> {project?.details?.roles?.user}
-                </p>
-                <p>
-                  <strong>Corporate:</strong>{" "}
-                  {project?.details?.roles?.corporate}
-                </p>
-                <p>
-                  <strong>Admin:</strong> {project?.details?.roles?.admin}
-                </p>
+                {project?.details?.roles?.user && (
+                  <p>
+                    <strong>User:</strong> {project?.details?.roles?.user}
+                  </p>
+                )}
+                {project?.details?.roles?.corporate && (
+                  <p>
+                    <strong>Corporate:</strong>{" "}
+                    {project?.details?.roles?.corporate}
+                  </p>
+                )}
+                {project?.details?.roles?.admin && (
+                  <p>
+                    <strong>Admin:</strong> {project?.details?.roles?.admin}
+                  </p>
+                )}
               </Box>
             </Section>
           </Box>

@@ -139,20 +139,20 @@ export default function ContactFlip() {
               <Flex gap={4}>
                 <Button
                   flex={1}
-                  borderRadius="xl"
-                  bg="cyan.500"
-                  color="black"
-                  _hover={{ bg: "cyan.400" }}
+                  variant={"outline"}
+                  borderRadius="md"
+                  color="white"
+                  _hover={{ bg: "#916CE7" }}
                 >
                   Send Message →
                 </Button>
 
                 <Button
                   px={10}
-                  borderRadius="xl"
-                  bg="cyan.500"
-                  color="black"
-                  _hover={{ bg: "cyan.400" }}
+                  variant={"outline"}
+                  borderRadius="md"
+                  color="white"
+                  _hover={{ bg: "#916CE7" }}
                 >
                   Whatsapp
                 </Button>
