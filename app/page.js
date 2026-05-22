@@ -55,24 +55,37 @@ const journey = {
   sub: "My Journey and details",
   data: [
     {
-      date: "01 Aug",
+      date: "01 Aug 24",
       shortdescription: "Started Job at Mir Infosys as Intern",
     },
     {
-      date: "10 Sep",
+      date: "10 Sep 24",
       shortdescription: "Sundarban Courier (Percel Tracking System)",
     },
     {
-      date: "03 Oct",
+      date: "03 Oct 24",
       shortdescription: "Skitto (Revamp) Project by Grameenphone",
     },
     {
-      date: "01 Nov",
+      date: "01 Nov 24",
       shortdescription: "Promoted As Software Engineer",
     },
     {
-      date: "15 Dec",
+      date: "15 Dec 24",
       shortdescription: "GpFi (Revamp) Project By Grameenphone",
+    },
+    {
+      date: "01 Apr 25",
+      shortdescription: "Grameenphone Web & Shop Feature Development",
+    },
+    {
+      date: "13 July 25",
+      shortdescription: "GPPI Cockpit App Development",
+    },
+    {
+      date: "01 Oct 56",
+      shortdescription:
+        "GP Cockpit and GPPI App Maintenance and Feature Development",
     },
   ],
 };
