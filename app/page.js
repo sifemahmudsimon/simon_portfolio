@@ -40,7 +40,7 @@ const profile = {
   },
   resume: {
     name: "Resume",
-    url: "https://drive.google.com/file/d/1wHBtMw16AIJDMGOrfHt_rLkG1OSf1uP4/view?usp=sharing",
+    url: "https://drive.google.com/file/d/137kxGv25cUq1HDR_0HJA7769haq8DeLc/view?usp=sharing",
   },
   avaiablity: {
     status: "Available To Work",
@@ -129,53 +129,28 @@ const stacks = {
   ],
 };
 
-const projects = {
-  title: "Projects",
-  sub: "spotlight",
-  data: [
-    {
-      bannerimage: "/projectimage/sundarban.png",
-      company: "Sundarban",
-      title: "Shundarban Courier Service Ltd",
-      subtitle: "Parcel Tracking System",
-      description:
-        "This project is an enhanced version that integrates a user and corporate parcel tracking system, supporting both national and international shipments. It has been designed using a combination of Tailwind CSS and the MUI library for a modern and responsive user interface. The core architecture is built with React and Next.js, utilizing the Next.js App Router for efficient routing and optimizaation.",
-      stacks: [],
-      url: "/sundarban",
-      link: "",
-    },
-    {
-      bannerimage: "/projectimage/skitto.png",
-      company: "SKITTO",
-      title: "Skitto (Revamp)",
-      subtitle: "project by Grameenphone",
-      description:
-        "This project focused on the complete redevelopment of skitto.com, transitioning it from a legacy website into a modern, feature-rich platform utilizing cutting-edge technologies. The redesign prioritized enhancing user experience, boosting performance, and incorporating dynamic features to address evolving user needs.",
-      stacks: [],
-      url: "/skitto-revamp",
-      link: "",
-    },
-    {
-      bannerimage: "/projectimage/gpfi.jpg",
-      company: "Grameenphone",
-      title: "GpFi (Revamp)",
-      subtitle: "project by Grameenphone",
-      description: "",
-      stacks: [],
-      url: "/grameenphone-gpfi",
-      link: "gpfi.grameenphone.com",
-    },
-  ],
-};
-
 const gallary = [
   { url: "/tempimage/img1.png" },
+  { url: "/tempimage/img2.jpg" },
   { url: "/tempimage/img3.png" },
   { url: "/tempimage/img4.png" },
-  { url: "/tempimage/img2.png" },
+  { url: "/tempimage/img5.png" },
+  { url: "/tempimage/img6.jpg" },
+  { url: "/tempimage/img7.jpg" },
+  { url: "/tempimage/img8.jpeg" },
+  { url: "/tempimage/img9.jpg" },
+  { url: "/tempimage/img10.jpg" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`, {
+    cache: "no-store", // or next: { revalidate: 60 }
+  });
+
+  const projects = await res.json();
+
+  console.log("projectsData", projects);
+
   return (
     <HomePage
       navlist={navlist}

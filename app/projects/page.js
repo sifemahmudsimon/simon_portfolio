@@ -7,6 +7,7 @@ import NavBar from "../components/navbar/NavBar";
 import { ExternalLink } from "lucide-react";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import Image from "next/image";
+import Link from "next/link";
 
 const MemoNavBar = React.memo(NavBar);
 
@@ -238,59 +239,65 @@ export default function Project() {
 
                   {/* BUTTONS */}
                   <Box display="flex" gap={3} mt={7}>
-                    <Box
-                      as="a"
-                      href={"projects/" + p.url}
-                      bg="white"
-                      color="black"
-                      px={5}
-                      py={2}
-                      borderRadius="full"
-                      transition="all 0.2s ease"
-                      fontSize="sm"
-                      _hover={{ bg: "#916CE7", color: "white" }}
-                    >
-                      Case Study
-                    </Box>
-                    {p.doc && (
+                    <Link href={"projects/" + p.url}>
                       <Box
-                        as="a"
+                        bg="white"
+                        color="black"
+                        px={5}
+                        py={2}
+                        borderRadius="full"
+                        transition="all 0.2s ease"
+                        fontSize="sm"
+                        _hover={{ bg: "#916CE7", color: "white" }}
+                      >
+                        Case Study
+                      </Box>
+                    </Link>
+                    {p.doc && (
+                      <Link
                         href={p.doc}
                         target="_blank"
-                        border="1px solid rgba(255,255,255,0.2)"
-                        px={5}
-                        py={2}
-                        borderRadius="full"
-                        display="flex"
-                        alignItems="center"
-                        gap={2}
-                        fontSize="sm"
-                        color="whiteAlpha.700"
-                        transition="all 0.2s ease"
-                        _hover={{ borderColor: "#916CE7", color: "white" }}
+                        rel="noopener noreferrer"
                       >
-                        Doc
-                      </Box>
+                        <Box
+                          border="1px solid rgba(255,255,255,0.2)"
+                          px={5}
+                          py={2}
+                          borderRadius="full"
+                          display="flex"
+                          alignItems="center"
+                          gap={2}
+                          fontSize="sm"
+                          color="whiteAlpha.700"
+                          transition="all 0.2s ease"
+                          _hover={{ borderColor: "#916CE7", color: "white" }}
+                        >
+                          Doc
+                        </Box>
+                      </Link>
                     )}
                     {p.link && (
-                      <Box
-                        as="a"
+                      <Link
                         href={p.link}
                         target="_blank"
-                        border="1px solid rgba(255,255,255,0.2)"
-                        px={5}
-                        py={2}
-                        borderRadius="full"
-                        display="flex"
-                        alignItems="center"
-                        gap={2}
-                        fontSize="sm"
-                        color="whiteAlpha.700"
-                        transition="all 0.2s ease"
-                        _hover={{ borderColor: "#916CE7", color: "white" }}
+                        rel="noopener noreferrer"
                       >
-                        Live <ExternalLink size={14} />
-                      </Box>
+                        <Box
+                          border="1px solid rgba(255,255,255,0.2)"
+                          px={5}
+                          py={2}
+                          borderRadius="full"
+                          display="flex"
+                          alignItems="center"
+                          gap={2}
+                          fontSize="sm"
+                          color="whiteAlpha.700"
+                          transition="all 0.2s ease"
+                          _hover={{ borderColor: "#916CE7", color: "white" }}
+                        >
+                          Live <ExternalLink size={14} />
+                        </Box>
+                      </Link>
                     )}
                   </Box>
                 </Box>

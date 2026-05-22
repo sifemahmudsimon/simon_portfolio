@@ -14,6 +14,54 @@ import { Terminal } from "@/components/ui/terminal";
 
 export default function ContactFlip() {
   const [done, setDone] = useState(false);
+  const [disabled, setDisabled] = useState({
+    message: "Send Message",
+    disable: false,
+  });
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async () => {
+    setDisabled((prev) => ({
+      ...prev,
+      message: "Sending...",
+      disable: true,
+    }));
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (res.ok) {
+        setDisabled((prev) => ({
+          ...prev,
+          message: "Message sent!",
+          disable: true, // keep disabled OR false depending on UX
+        }));
+      } else {
+        setDisabled((prev) => ({
+          ...prev,
+          message: "Try Again",
+          disable: false,
+        }));
+      }
+    } catch (error) {
+      console.log(error);
+
+      setDisabled((prev) => ({
+        ...prev,
+        message: "Try Again Later",
+        disable: false,
+      }));
+    }
+  };
 
   useEffect(() => {
     const t = setTimeout(() => setDone(true), 5000);
@@ -98,6 +146,8 @@ export default function ContactFlip() {
               {/* INPUT ROW */}
               <Flex direction={{ base: "column", md: "row" }} gap={4}>
                 <Input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder="Name"
                   bg="gray.800"
                   color="white"
@@ -110,6 +160,8 @@ export default function ContactFlip() {
                 />
 
                 <Input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email"
                   bg="gray.800"
                   color="white"
@@ -123,6 +175,8 @@ export default function ContactFlip() {
               </Flex>
 
               <Textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder="Message"
                 bg="gray.800"
                 color="white"
@@ -138,13 +192,15 @@ export default function ContactFlip() {
 
               <Flex gap={4}>
                 <Button
+                  disabled={disabled.disable}
+                  onClick={handleSubmit}
                   flex={1}
                   variant={"outline"}
                   borderRadius="md"
                   color="white"
                   _hover={{ bg: "#916CE7" }}
                 >
-                  Send Message →
+                  {disabled.message}
                 </Button>
 
                 <Button

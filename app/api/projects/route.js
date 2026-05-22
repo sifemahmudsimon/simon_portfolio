@@ -402,8 +402,8 @@ export async function GET() {
           ],
 
           roles: {
-            guest: "View issues and dashboard information",
-            user: "Create, edit, assign, update, and manage issues",
+            user: "View issues and dashboard information",
+            corporate: "Create, edit, assign, update, and manage issues",
             admin: "Monitor project activity and manage workflow",
           },
         },
@@ -550,8 +550,7 @@ export async function GET() {
           ],
 
           roles: {
-            traveler: "Search, filter, review, and book flights",
-            guest: "Explore flight results and pricing",
+            user: "Search, filter, review, and book flights",
             admin: "Monitor bookings and API performance",
           },
         },
@@ -803,6 +802,132 @@ export async function GET() {
         url: "/img-gallery",
 
         link: "https://dnd-imagegallery.netlify.app",
+      },
+      {
+        category: [1, 4],
+        bannerimage: "/projectimage/daffodilnewsportal.png",
+        projectdemo: "/projectimage/screenshots/daffodilnewsportal.png",
+        company: "Daffodil International University",
+        title: "Institutional News & Notice Aggregation Platform",
+        subtitle: "Static University Information Portal",
+
+        description:
+          "Daffodil News Portal is a static institutional web platform built for Daffodil International University to aggregate and present official news, notices, academic journals, and campus events in a structured, responsive layout. Built using HTML5, Bootstrap 5, and custom CSS, the system provides fast access to university updates with a clean, dependency-light architecture deployed on Netlify.",
+
+        stacks: [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5.1.3",
+          "FontAwesome",
+          "Google Fonts",
+        ],
+
+        details: {
+          overview:
+            "The Daffodil News Portal is a framework-free static website designed to serve as a centralized information hub for university news, notices, academic journals, and campus events. It focuses on simplicity, fast loading, and direct access to institutional content, relying entirely on HTML, CSS, and CDN-based dependencies without any backend or build system.",
+
+          features: [
+            "Responsive Bootstrap-based navigation system",
+            "Full-screen hero section with university branding and CTAs",
+            "Official notice board linking to external PDF notices",
+            "Academic journal showcase with hover interactions",
+            "Campus news and events card grid layout",
+            "Contact form UI with social media integration",
+            "Fully responsive design across mobile and desktop devices",
+            "Static deployment via Netlify CDN",
+            "Clean section-based single-page layout",
+          ],
+
+          challenges: [
+            "Managing fully hardcoded content without CMS or API layer",
+            "Handling large unoptimized image assets (~23MB total)",
+            "Maintaining scalability in a single-page HTML architecture",
+            "Non-functional contact form due to lack of backend integration",
+            "Dependency on external CDNs for UI libraries and fonts",
+            "No build pipeline leading to lack of optimization and caching control",
+          ],
+
+          results: [
+            "Delivered a fast and lightweight institutional information portal",
+            "Improved accessibility of university notices and news",
+            "Enabled simple deployment with zero build complexity",
+            "Maintained consistent branding aligned with university identity",
+            "Provided scalable foundation for future CMS or API integration",
+          ],
+
+          techStack: {
+            frontend: [
+              "HTML5",
+              "CSS3",
+              "Bootstrap 5.1.3",
+              "FontAwesome",
+              "Google Fonts",
+            ],
+
+            backend: ["None (fully static site)"],
+
+            tools: [
+              "Netlify Hosting",
+              "CDN-based asset delivery",
+              "Static file deployment pipeline",
+            ],
+          },
+
+          responsibilities: [
+            "Developed full static UI using HTML and Bootstrap",
+            "Implemented responsive layouts for all sections",
+            "Structured academic content sections (news, journals, notices)",
+            "Integrated external university links and resources",
+            "Managed deployment through Netlify static hosting",
+          ],
+
+          technologies: [
+            "Bootstrap for responsive grid and UI components",
+            "FontAwesome for iconography and UI enhancement",
+            "Google Fonts for typography styling",
+            "Netlify for static hosting and deployment",
+            "CSS transitions for hover interactions and UI effects",
+          ],
+
+          architecture: {
+            type: "fully static web application",
+            pattern: "single-page section-based layout",
+            dataFlow:
+              "Static HTML → Bootstrap Rendering → CDN Assets → Client Browser (no backend processing)",
+          },
+
+          integrations: [
+            "Bootstrap CDN for UI framework",
+            "FontAwesome CDN for icons",
+            "Google Fonts CDN for typography",
+            "Netlify static hosting platform",
+            "External university links for journals and notices",
+          ],
+
+          performance: [
+            "Fast load time due to static HTML structure",
+            "No JavaScript framework overhead",
+            "CDN-based asset delivery for UI libraries",
+            "Simple DOM structure improves rendering speed",
+          ],
+
+          testing: [
+            "Cross-browser layout validation",
+            "Responsive design testing across devices",
+            "Manual UI verification for navigation and links",
+            "Content rendering validation across sections",
+          ],
+
+          roles: {
+            user: "Browse news, notices, journals, and campus events",
+            student: "Access academic updates and official notices",
+            admin: "Manually update content via HTML and redeployment",
+          },
+        },
+
+        url: "/daffodil-news-portal",
+
+        link: "https://daffodilnewsportal.netlify.app",
       },
     ],
   };
