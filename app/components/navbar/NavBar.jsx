@@ -63,6 +63,7 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
       pt={{ md: isHomeSection ? "1vw" : "2vw" }}
       pb={{ base: "8px", md: "0px" }}
       px={{ base: "16px", md: "none" }}
+      transition="padding-top 0.1s ease-in-out"
     >
       <Container
         className={poppins.className}
@@ -70,7 +71,7 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
         display="flex"
         alignItems="center"
         bg="#101010"
-        maxW={{ md: isHomeSection ? "43.35%" : "93.4vw" }}
+        maxW={{ md: isHomeSection ? "44%" : "93.4vw" }}
         h={{ base: "76px", md: "4.23vw" }}
         p="0.53vw"
         border="0.066vw solid rgba(255, 255, 255, 0.06)"
@@ -79,14 +80,29 @@ const NavBar = ({ navlist, homePageNav, setClickedItem, isHomeSection }) => {
           md: isHomeSection ? "5.29vw" : "1.058vw",
         }}
         justifyContent={{ base: "center", md: "end" }}
+        boxShadow={"0px 0.93vw 2.01vw 0px rgba(0, 0, 0, 0.25)"}
+        transition="
+        max-width 0.3s ease-in-out 0.5s,
+        border-radius 0.3s ease-in-out 0.25s
+      "
       >
         <MotionText
           display={{ base: "none !important", md: "block !important" }}
           color="white"
           flex={1}
+          initial={{ opacity: 0, display: "none" }}
+          animate={{
+            opacity: isHomeSection ? 0 : 1,
+            display: isHomeSection ? "none" : "block",
+          }}
+          transition={{
+            opacity: { duration: 0.3, ease: "easeInOut", delay: 0.5 },
+            display: { duration: 0.3, ease: "easeInOut", delay: 0.5 },
+          }}
+          w={{ md: isHomeSection ? 0 : "10.45vw" }}
           fontWeight={200}
           fontSize={"1.587vw"}
-          ml={"2.381vw"}
+          ml={isHomeSection ? 0 : "2.381vw"}
         >
           S M Simon
         </MotionText>
