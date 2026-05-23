@@ -11,6 +11,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { Terminal } from "@/components/ui/terminal";
+import Link from "next/link";
 
 export default function ContactFlip() {
   const [done, setDone] = useState(false);
@@ -203,15 +204,21 @@ export default function ContactFlip() {
                   {disabled.message}
                 </Button>
 
-                <Button
-                  px={10}
-                  variant={"outline"}
-                  borderRadius="md"
-                  color="white"
-                  _hover={{ bg: "#916CE7" }}
-                >
-                  Whatsapp
-                </Button>
+                <Flex alignItems={"center"} color={"gray"}>
+                  or
+                </Flex>
+
+                <Link href={"https://wa.me/8801728337711"}>
+                  <Button
+                    px={10}
+                    variant={"outline"}
+                    borderRadius="md"
+                    color="white"
+                    _hover={{ bg: "#916CE7" }}
+                  >
+                    Whatsapp
+                  </Button>
+                </Link>
               </Flex>
             </VStack>
           </Box>
