@@ -40,7 +40,7 @@ const profile = {
   },
   resume: {
     name: "Resume",
-    url: "https://drive.google.com/file/d/137kxGv25cUq1HDR_0HJA7769haq8DeLc/view?usp=sharing",
+    url: "https://drive.google.com/file/d/14G9Dl_yR_zZILdlx591W32oTDfRNmoYA/view?usp=sharing",
   },
   avaiablity: {
     status: "Available To Work",
